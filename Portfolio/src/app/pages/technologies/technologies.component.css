@@ -1,0 +1,181 @@
+/* Technologies Page */
+.technologies-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  background-color: #0d1117;
+  min-height: 100vh;
+  color: #c9d1d9;
+}
+
+.technologies-section {
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+  background-color: #161b22;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.technologies-title {
+  font-size: 3.5rem; /* Slightly larger title */
+  font-weight: bold;
+  color: #58a6ff;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  text-transform: uppercase; /* Make the title uppercase */
+  letter-spacing: 2px; /* Add spacing between letters */
+}
+
+.technologies-description {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  color: #8b949e; /* Softer color for the description */
+}
+
+/* Categories */
+.technologies-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+.category-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #58a6ff;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+  border-left: 4px solid #58a6ff; /* Add a decorative border */
+  padding-left: 10px; /* Add spacing between the border and text */
+}
+
+/* Technologies Grid */
+.technologies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Technology Card */
+.technology-card {
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #1e242c, #0b0e13);
+  border: 2px solid #58a6ff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 180px;
+  height: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  /* Animation for appearance */
+  opacity: 0; /* Start invisible */
+  transform: translateY(30px) scale(0.9); /* Start slightly below and smaller */
+  animation: cardAppear 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; /* Smooth animation */
+}
+
+.technology-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.technology-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.technology-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.technology-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.technology-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+/* Add more delays as needed for additional cards */
+
+.technology-card:hover {
+  transform: translateY(-10px) scale(1.05); /* Slight lift and scale on hover */
+  box-shadow: 0 10px 30px rgba(88, 166, 255, 0.5);
+  background: linear-gradient(145deg, #58a6ff, #1e242c);
+}
+
+.technology-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Technology Icon */
+.technology-icon {
+  font-size: 4rem;
+  color: #58a6ff;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.technology-card:hover .technology-icon {
+  transform: scale(1.2);
+}
+
+/* Technology Name */
+.technology-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #c9d1d9;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+}
+
+.technology-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  object-fit: contain; /* Ensures the image fits within the container */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cardAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9); /* Start below and smaller */
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.02); /* Slight overshoot */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Settle into final position */
+  }
+}

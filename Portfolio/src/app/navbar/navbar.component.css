@@ -1,0 +1,88 @@
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #161b22;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  font-family: "Courier New";
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-left .logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.navbar-center .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-center .nav-links li {
+  position: relative;
+}
+
+.navbar-center .nav-links a {
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-center .nav-links a:hover,
+.navbar-center .nav-links a.active {
+  color: #58a6ff;
+}
+
+/* Fancy Underline for Active Link */
+.navbar-center .nav-links a.active::after,
+.navbar-center .nav-links a:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: #58a6ff;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.navbar-center .nav-links a::after {
+  width: 0;
+}
+
+/* Improved Contact Button */
+.navbar-right .contact-button {
+  background: linear-gradient(135deg, #58a6ff, #4691e6);
+  color: #0d1117;
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.navbar-right .contact-button:hover {
+  background: linear-gradient(135deg, #4691e6, #58a6ff);
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-right .contact-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

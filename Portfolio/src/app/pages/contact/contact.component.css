@@ -1,0 +1,137 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Contact Page */
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  background-color: #0d1117; /* Dark background */
+  min-height: 100vh;
+  color: #c9d1d9; /* Light text color */
+}
+
+/* Contact Section */
+.contact-section {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  padding: 2rem;
+  background-color: #161b22; /* Slightly lighter background for the section */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  animation: fadeIn 1s ease-in-out; /* Subtle fade-in animation */
+}
+
+/* Contact Title */
+.contact-title {
+  font-size: 3.5rem; /* Large title */
+  font-weight: bold;
+  color: #58a6ff; /* Blue accent color */
+  margin-bottom: 1rem;
+  animation: slideInFromBottom 1s ease-in-out; /* Subtle slide-in animation for the title */
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  text-transform: uppercase; /* Make the title uppercase */
+  letter-spacing: 2px; /* Add spacing between letters */
+}
+
+/* Contact Description */
+.contact-description {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  color: #8b949e; /* Softer color for the description */
+  animation: fadeIn 1.5s ease-in-out; /* Subtle fade-in animation for the description */
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 2s ease-in-out; /* Subtle fade-in animation for the form */
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #58a6ff; /* Blue accent color */
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #58a6ff;
+  border-radius: 8px;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #58a6ff;
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+  outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0d1117;
+  background-color: #58a6ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0d1117;
+  color: #58a6ff;
+  transform: scale(1.03); /* Slight scaling effect */
+}
+
+/* Animations */
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-in from bottom */
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

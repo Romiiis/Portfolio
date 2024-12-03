@@ -1,0 +1,144 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Home Page */
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Courier New", Courier, monospace;
+
+  overflow-x: hidden;
+  height: 70vh;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  background-color: #161b22;
+  border-radius: 15px;
+  padding: 3rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Hero Left */
+.hero-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hero Icon */
+.hero-icon {
+  font-size: 150px; /* Increase the size of the icon */
+  color: #58a6ff; /* Set the color of the icon */
+  animation: float 3s ease-in-out infinite; /* Add spin and float animations */
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* Hero Right */
+.hero-right {
+  flex: 2;
+  padding-left: 3rem;
+  animation: slideInRight 1.5s ease-in-out;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #58a6ff;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+.hero-description {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.highlight {
+  color: #58a6ff;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.primary-btn {
+  background-color: #58a6ff;
+  color: #0d1117;
+  border: 2px solid #58a6ff;
+}
+
+.primary-btn:hover {
+  background-color: #0d1117;
+  color: #58a6ff;
+  transform: scale(1.1);
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: #58a6ff;
+  border: 2px solid #58a6ff;
+}
+
+.secondary-btn:hover {
+  background-color: #58a6ff;
+  color: #0d1117;
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+

@@ -1,0 +1,45 @@
+<div class="projects-page">
+  <div class="projects-section">
+    <h1 class="projects-title">Projects</h1>
+    <p class="projects-description">
+      Here are some of the projects I have worked on. Click on a project to learn
+      more about it.
+    </p>
+    <div class="projects-grid">
+      <div
+        class="project-card"
+        *ngFor="let project of projects"
+        (click)="openModal(project)"
+      >
+        <h2 class="project-name">{{ project.name }}</h2>
+        <p class="project-short-description">{{ project.shortDescription }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" *ngIf="selectedProject">
+    <div class="modal-content">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <h2 class="modal-title">{{ selectedProject.name }}</h2>
+      <img
+        class="modal-image"
+        [src]="selectedProject.imageUrl"
+        alt="{{ selectedProject.name }}"
+        (error)="setDefaultImage($event)"
+      />
+      <p class="modal-description">{{ selectedProject.longDescription }}</p>
+      <a *ngIf="selectedProject.projectUrl; else noUrl"
+         class="modal-link"
+         [href]="selectedProject.projectUrl"
+         target="_blank"
+         rel="noopener noreferrer"
+      >
+        View Project
+      </a>
+      <ng-template #noUrl>
+        <span class="no-url">URL not available</span>
+      </ng-template>
+    </div>
+  </div>
+</div>

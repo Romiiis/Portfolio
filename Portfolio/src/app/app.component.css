@@ -1,0 +1,50 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* Ensure the body takes up the full height */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  font-family: 'Arial', sans-serif; /* Use a clean, modern font */
+  background-color: #141a23; /* Match the dark theme */
+  color: #c9d1d9; /* Light text color */
+}
+
+/* Page Container */
+.page-container {
+  display: flex;
+  flex-direction: column; /* Stack navbar, content, and footer vertically */
+  min-height: 100vh; /* Ensure the container takes up the full viewport height */
+  background-color: #141a23; /* Match the background color */
+}
+
+/* Navbar */
+app-navbar {
+  flex-shrink: 0; /* Prevent the navbar from shrinking */
+  min-height: 5%; /* Set a fixed height for the navbar */
+  background-color: #161b22; /* Match the navbar background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+}
+
+/* Content Area */
+.content {
+  flex: 1; /* Allow the content to grow and fill the remaining space */
+  padding: 2rem; /* Add padding to the content */
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+}
+
+/* Footer */
+app-footer {
+  flex-shrink: 0; /* Prevent the footer from shrinking */
+  min-height: 2%; /* Set a fixed height for the footer */
+  background-color: #161b22; /* Match the footer background */
+  text-align: center;
+  color: #8b949e; /* Slightly lighter text for the footer */
+  padding: 1rem; /* Add padding for spacing */
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+}

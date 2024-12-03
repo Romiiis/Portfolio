@@ -1,0 +1,158 @@
+.projects-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem; /* Increased padding for more breathing room */
+  font-family: "Courier New", Courier, monospace;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+.projects-section {
+  text-align: center;
+  padding: 3rem; /* Increased padding for better spacing */
+  background-color: #161b22;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
+  min-width: 100vh;
+}
+
+.projects-title {
+  font-size: 4rem; /* Larger title */
+  font-weight: bold;
+  color: #58a6ff;
+  margin-bottom: 0rem; /* More spacing below the title */
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Increased letter spacing */
+}
+
+.projects-description {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 4rem;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  color: #8b949e; /* Softer color for the description */
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column; /* Stack cards vertically */
+  gap: 3rem; /* Space between each card */
+  justify-content: center;
+  align-items: center; /* Center the cards horizontally */
+  width: 100%; /* Ensure the grid takes full width */
+}
+
+.project-card {
+  background: linear-gradient(145deg, #1e242c, #0b0e13);
+  border: 2px solid #58a6ff;
+  border-radius: 15px;
+  padding: 2rem; /* Increased padding inside the card */
+  width: 80%; /* Make the card take up 80% of the container width */
+  max-width: 800px; /* Set a maximum width for larger screens */
+  height: auto; /* Allow the height to adjust based on content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #c9d1d9;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-15px) scale(1.1); /* Slightly larger hover effect */
+  box-shadow: 0 15px 40px rgba(88, 166, 255, 0.6); /* More pronounced shadow */
+  background: linear-gradient(145deg, #58a6ff, #1e242c);
+}
+
+.project-name {
+  font-size: 1.8rem; /* Larger font size for project name */
+  font-weight: bold;
+  margin-bottom: 1rem; /* More spacing below the name */
+}
+
+.project-short-description {
+  font-size: 1.2rem; /* Slightly larger font size for description */
+  color: #8b949e;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    width: 95%; /* Take up almost the full width on smaller screens */
+  }
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #161b22;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  color: #c9d1d9;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #c9d1d9;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #58a6ff;
+  margin-bottom: 1rem;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.modal-description {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #8b949e;
+}
+
+.modal-link {
+  font-size: 1.2rem;
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.no-url {
+  color: gray;
+  font-style: italic;
+}
+
+.modal-link:hover {
+  color: #c9d1d9;
+}

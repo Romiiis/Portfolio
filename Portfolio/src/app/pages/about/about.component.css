@@ -1,0 +1,144 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* About Page */
+.about-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  background-color: #0d1117; /* Dark background */
+  min-height: 100vh;
+  color: #c9d1d9; /* Light text color */
+  overflow: hidden; /* Prevent overflow during animations */
+}
+
+/* About Section */
+.about-section {
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+  background-color: #161b22; /* Slightly lighter background for the section */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  animation: fadeIn 1.5s ease-in-out; /* Fade-in animation for the entire section */
+}
+
+/* About Title */
+.about-title {
+  font-size: 3.5rem; /* Large title */
+  font-weight: bold;
+  color: #58a6ff; /* Blue accent color */
+  margin-bottom: 1rem;
+  animation: slideInFromTop 1.5s ease-in-out; /* Slide-in animation for the title */
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  text-transform: uppercase; /* Make the title uppercase */
+  letter-spacing: 2px; /* Add spacing between letters */
+}
+
+/* About Description */
+.about-description {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  color: #8b949e; /* Softer color for the description */
+  animation: fadeIn 2s ease-in-out; /* Fade-in animation for the description */
+}
+
+/* About Details */
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+/* Section Titles */
+.about-subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #58a6ff; /* Blue accent color */
+  margin-bottom: 1rem;
+  text-transform: capitalize; /* Capitalize the first letter of each word */
+  border-left: 4px solid #58a6ff; /* Decorative border */
+  padding-left: 10px; /* Spacing between border and text */
+}
+
+/* About Paragraphs */
+.about-details p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #c9d1d9; /* Light text color */
+  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+}
+
+/* Animations */
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-in from top */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Slide-in from left */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Fade-in with scale */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Staggered Animations for Paragraphs */
+.about-details p:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.about-details p:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.about-details p:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.about-details p:nth-child(4) {
+  animation-delay: 0.8s;
+}
