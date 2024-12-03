@@ -41,6 +41,7 @@
 
         <div class="modal-body">
           <img
+            *ngIf="selectedProject?.imageUrl"
             class="modal-image img-fluid rounded mb-3"
             [src]="selectedProject?.imageUrl"
             [alt]="selectedProject?.name"

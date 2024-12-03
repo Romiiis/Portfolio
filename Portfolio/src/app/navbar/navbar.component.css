@@ -9,7 +9,7 @@
 }
 
 .navbar-brand {
-  font-family: "Pacifico", cursive;
+  font-family: "Courier New", monospace;
   font-size: 2rem;
   color: #58a6ff !important;
   margin-right: 6rem; /* Add spacing after logo */
