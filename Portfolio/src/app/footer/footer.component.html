@@ -1,16 +1,18 @@
 <footer class="footer">
   <div class="footer-content">
-    <p>&copy; 2024 Romis. All rights reserved.</p>
     <div class="social-links">
-      <a href="https://www.instagram.com/romis_pejs" target="_blank" aria-label="Instagram">
+      <!-- Added fs-5/fs-sm-6 to make icons slightly larger than text but still responsive -->
+      <a href="https://www.instagram.com/romis_pejs" target="_blank" aria-label="Instagram" class="fs-5 fs-sm-6">
         <fa-icon [icon]="['fab', 'instagram']"></fa-icon>
       </a>
-      <a href="https://github.com/Romiiis" target="_blank" aria-label="GitHub">
+      <a href="https://github.com/Romiiis" target="_blank" aria-label="GitHub" class="fs-5 fs-sm-6">
         <fa-icon [icon]="['fab', 'github']"></fa-icon>
       </a>
-      <a href="https://open.spotify.com/user/215yygk2zr3r7pavfbz2rprhy?si=5539c9a3ab7f434b" target="_blank" aria-label="Spotify">
+      <a href="https://open.spotify.com/user/215yygk2zr3r7pavfbz2rprhy?si=5539c9a3ab7f434b" target="_blank" aria-label="Spotify" class="fs-5 fs-sm-6">
         <fa-icon [icon]="['fab', 'spotify']"></fa-icon>
       </a>
     </div>
+    <p class="fs-6 fs-sm-7">&copy; 2024 Romis. {{ "FOOTER.COPYRIGHT" | translate}}</p>
+
   </div>
 </footer>

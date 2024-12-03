@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import {FaIconComponent, FaIconLibrary} from '@fortawesome/angular-fontawesome';
 import {faDiscord, faGithub, faInstagram, faSpotify} from '@fortawesome/free-brands-svg-icons';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
   imports: [
-    FaIconComponent
+    FaIconComponent,
+    TranslatePipe
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'

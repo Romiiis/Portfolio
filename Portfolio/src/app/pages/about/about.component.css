@@ -1,144 +1,191 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* About Page */
+/* Core styles */
 .about-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
-  background-color: #0d1117; /* Dark background */
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: "Courier New", Courier, monospace;
   min-height: 100vh;
-  color: #c9d1d9; /* Light text color */
-  overflow: hidden; /* Prevent overflow during animations */
 }
 
-/* About Section */
 .about-section {
-  text-align: center;
-  max-width: 1200px;
-  width: 100%;
-  padding: 2rem;
-  background-color: #161b22; /* Slightly lighter background for the section */
+  background-color: #161b22;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-  animation: fadeIn 1.5s ease-in-out; /* Fade-in animation for the entire section */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
 }
 
-/* About Title */
+/* Title styles */
 .about-title {
-  font-size: 3.5rem; /* Large title */
+  color: #58a6ff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
   font-weight: bold;
-  color: #58a6ff; /* Blue accent color */
-  margin-bottom: 1rem;
-  animation: slideInFromTop 1.5s ease-in-out; /* Slide-in animation for the title */
-  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
-  text-transform: uppercase; /* Make the title uppercase */
-  letter-spacing: 2px; /* Add spacing between letters */
-}
-
-/* About Description */
-.about-description {
-  font-size: 1.5rem;
-  line-height: 1.8;
+  font-size: 3rem;
+  text-align: center;
   margin-bottom: 2rem;
-  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
-  color: #8b949e; /* Softer color for the description */
-  animation: fadeIn 2s ease-in-out; /* Fade-in animation for the description */
+  text-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
 }
 
-/* About Details */
-.about-details {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  text-align: left;
-  margin-top: 2rem;
-}
-
-/* Section Titles */
-.about-subtitle {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #58a6ff; /* Blue accent color */
-  margin-bottom: 1rem;
-  text-transform: capitalize; /* Capitalize the first letter of each word */
-  border-left: 4px solid #58a6ff; /* Decorative border */
-  padding-left: 10px; /* Spacing between border and text */
-}
-
-/* About Paragraphs */
-.about-details p {
+.about-description {
+  color: #c9d1d9;
   font-size: 1.2rem;
   line-height: 1.8;
-  color: #c9d1d9; /* Light text color */
-  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Details section */
+.about-details {
+  position: relative;
+}
+
+.about-subtitle {
+  color: #58a6ff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 4px solid #58a6ff;
+  position: relative;
+}
+
+.about-subtitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #58a6ff, transparent);
+}
+
+/* Content sections */
+.about-details .col-12 {
+  background: linear-gradient(145deg, #1e242c, #0b0e13);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.about-details .col-12::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #58a6ff, transparent, #58a6ff);
+  border-radius: 15px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.about-details .col-12:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(88, 166, 255, 0.2);
+}
+
+.about-details p {
+  color: #c9d1d9;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* Animations */
+@keyframes glowPulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.3; }
+}
 
-/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-  }
-}
-
-/* Slide-in from top */
-@keyframes slideInFromTop {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-  to {
     transform: translateY(0);
-    opacity: 1;
   }
 }
 
-/* Slide-in from left */
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-50px);
-    opacity: 0;
+/* Apply animations */
+.about-section {
+  animation: fadeIn 1s ease-out;
+}
+
+.about-details .col-12 {
+  animation: fadeIn 1s ease-out;
+  animation-fill-mode: both;
+}
+
+.about-details .col-12:nth-child(1) { animation-delay: 0.2s; }
+.about-details .col-12:nth-child(2) { animation-delay: 0.4s; }
+.about-details .col-12:nth-child(3) { animation-delay: 0.6s; }
+.about-details .col-12:nth-child(4) { animation-delay: 0.8s; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 2rem;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-description {
+    font-size: 1.1rem;
+  }
+
+  .about-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .about-details p {
+    font-size: 1rem;
+  }
+
+  .about-details .col-12 {
+    padding: 1.5rem;
   }
 }
 
-/* Fade-in with scale */
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
+@media (max-width: 576px) {
+  .about-section {
+    padding: 1.5rem;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
-/* Staggered Animations for Paragraphs */
-.about-details p:nth-child(1) {
-  animation-delay: 0.2s;
-}
-.about-details p:nth-child(2) {
-  animation-delay: 0.4s;
-}
-.about-details p:nth-child(3) {
-  animation-delay: 0.6s;
-}
-.about-details p:nth-child(4) {
-  animation-delay: 0.8s;
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .about-subtitle {
+    font-size: 1.3rem;
+    padding-left: 0.8rem;
+  }
+
+  .about-details p {
+    font-size: 0.9rem;
+  }
+
+  .about-details .col-12 {
+    padding: 1.25rem;
+  }
 }

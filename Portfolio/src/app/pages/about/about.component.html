@@ -1,44 +1,44 @@
 <div class="about-page">
-  <div class="about-section">
-    <!-- Title -->
-    <h1 class="about-title">About Me</h1>
+  <div class="about-section container">
+    <!-- Title - Large on desktop, smaller on mobile -->
+    <h1 class="about-title fs-1 fs-sm-2">{{ 'ABOUT.TITLE' | translate }}</h1>
 
-    <!-- Description -->
-    <p class="about-description">
-      Welcome to my personal page! Here, you can learn more about my background, hobbies, and experiences.
+    <!-- Description - Medium on desktop, smaller on mobile -->
+    <p class="about-description fs-4 fs-sm-5">
+        {{ 'ABOUT.DESCRIPTION' | translate }}
     </p>
 
     <!-- Details Section -->
-    <div class="about-details">
+    <div class="about-details row">
       <!-- Biography Section -->
-      <div>
-        <h2 class="about-subtitle">Biography</h2>
-        <p>
-          I was born in February 2003 in Žatec. I attended primary school there and later enrolled at the Secondary Industrial School in Chomutov, where I majored in Automation Systems. After successfully passing my matriculation exams, I continued my studies at the Faculty of Applied Sciences at the University of West Bohemia in Pilsen, where I am currently pursuing a degree in Informatics.
+      <div class="col-12 mb-4">
+        <h2 class="about-subtitle fs-2 fs-sm-3">{{ 'ABOUT.BIOGRAPHY.TITLE' | translate }}</h2>
+        <p class="fs-5 fs-sm-6">
+          {{ 'ABOUT.BIOGRAPHY.DESCRIPTION' | translate }}
         </p>
       </div>
 
       <!-- Hobbies Section -->
-      <div>
-        <h2 class="about-subtitle">Hobbies</h2>
-        <p>
-          My hobbies include going to the gym, spending time with friends, listening to music, playing the guitar, and enjoying night drives.
+      <div class="col-12 mb-4">
+        <h2 class="about-subtitle fs-2 fs-sm-3">{{ 'ABOUT.HOBBIES.TITLE' | translate }}</h2>
+        <p class="fs-5 fs-sm-6">
+            {{ 'ABOUT.HOBBIES.DESCRIPTION' | translate }}
         </p>
       </div>
 
       <!-- Pets Section -->
-      <div>
-        <h2 class="about-subtitle">Pets</h2>
-        <p>
-          I live with two cats, Lucifer and Foxy. Additionally, there is a hamster named Šmudlina living in Žatec.
+      <div class="col-12 mb-4">
+        <h2 class="about-subtitle fs-2 fs-sm-3">{{ 'ABOUT.PETS.TITLE' | translate }}</h2>
+        <p class="fs-5 fs-sm-6">
+          {{ 'ABOUT.PETS.DESCRIPTION' | translate }}
         </p>
       </div>
 
       <!-- Experience Section -->
-      <div>
-        <h2 class="about-subtitle">Work Experience</h2>
-        <p>
-          Since April 2024, I have been working as a Trainee in the student lab at Eurosoftware S.R.O.
+      <div class="col-12 mb-4">
+        <h2 class="about-subtitle fs-2 fs-sm-3">{{ 'ABOUT.WORK.TITLE' | translate }}</h2>
+        <p class="fs-5 fs-sm-6">
+          {{ 'ABOUT.WORK.DESCRIPTION' | translate }}
         </p>
       </div>
     </div>

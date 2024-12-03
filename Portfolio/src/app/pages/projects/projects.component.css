@@ -1,158 +1,319 @@
+/* Core styles */
 .projects-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem; /* Increased padding for more breathing room */
-  font-family: "Courier New", Courier, monospace;
   background-color: #0d1117;
   color: #c9d1d9;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .projects-section {
-  text-align: center;
-  padding: 3rem; /* Increased padding for better spacing */
   background-color: #161b22;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  min-height: 100vh;
-  min-width: 100vh;
 }
 
+/* Title styles */
 .projects-title {
-  font-size: 4rem; /* Larger title */
-  font-weight: bold;
   color: #58a6ff;
-  margin-bottom: 0rem; /* More spacing below the title */
   text-transform: uppercase;
-  letter-spacing: 3px; /* Increased letter spacing */
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 3rem;
 }
 
 .projects-description {
-  font-size: 1.5rem;
-  line-height: 1.8;
-  margin-bottom: 4rem;
-  font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
-  color: #8b949e; /* Softer color for the description */
+  color: #c9d1d9;
+  font-size: 1.2rem;
 }
 
-.projects-grid {
-  display: flex;
-  flex-direction: column; /* Stack cards vertically */
-  gap: 3rem; /* Space between each card */
-  justify-content: center;
-  align-items: center; /* Center the cards horizontally */
-  width: 100%; /* Ensure the grid takes full width */
-}
-
+/* Enhanced Card Styles */
 .project-card {
   background: linear-gradient(145deg, #1e242c, #0b0e13);
-  border: 2px solid #58a6ff;
   border-radius: 15px;
-  padding: 2rem; /* Increased padding inside the card */
-  width: 80%; /* Make the card take up 80% of the container width */
-  max-width: 800px; /* Set a maximum width for larger screens */
-  height: auto; /* Allow the height to adjust based on content */
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  color: #c9d1d9;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-15px) scale(1.1); /* Slightly larger hover effect */
-  box-shadow: 0 15px 40px rgba(88, 166, 255, 0.6); /* More pronounced shadow */
-  background: linear-gradient(145deg, #58a6ff, #1e242c);
-}
-
-.project-name {
-  font-size: 1.8rem; /* Larger font size for project name */
-  font-weight: bold;
-  margin-bottom: 1rem; /* More spacing below the name */
-}
-
-.project-short-description {
-  font-size: 1.2rem; /* Slightly larger font size for description */
-  color: #8b949e;
-}
-
-@media (max-width: 768px) {
-  .project-card {
-    width: 95%; /* Take up almost the full width on smaller screens */
-  }
-}
-
-
-.modal {
-  position: fixed;
+.card-glow {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(88, 166, 255, 0.1),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.modal-content {
-  background-color: #161b22;
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  max-width: 600px;
-  width: 90%;
-  color: #c9d1d9;
-  position: relative;
+.card-divider {
+  height: 2px;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, #58a6ff, transparent);
+  margin: 1rem auto;
+  transition: width 0.3s ease;
 }
 
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(88, 166, 255, 0.2);
+  border-color: #58a6ff;
+}
+
+.project-card:hover .card-glow {
+  opacity: 1;
+}
+
+.project-card:hover .card-divider {
+  width: 80px;
+}
+
+.project-name {
+  color: #58a6ff;
+  margin-bottom: 1rem;
+  font-weight: bold;
   font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+}
+
+.project-short-description {
   color: #c9d1d9;
-  cursor: pointer;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(11, 14, 19, 0.9), transparent);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.view-more {
+  color: #58a6ff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Modal Styles */
+.modal {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.custom-modal {
+  background-color: #161b22;
+  color: #c9d1d9;
+  border: 2px solid #58a6ff;
+  border-radius: 15px;
+}
+
+.modal-header {
+  border-bottom: 1px solid #30363d;
+  padding: 1.5rem;
 }
 
 .modal-title {
-  font-size: 2rem;
-  font-weight: bold;
   color: #58a6ff;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 1.5rem;
 }
 
 .modal-image {
+  max-height: 400px;
   width: 100%;
-  height: auto;
+  object-fit: cover;
+  border: 2px solid #30363d;
   border-radius: 10px;
-  margin-bottom: 1rem;
 }
 
 .modal-description {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #8b949e;
+  color: #c9d1d9;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-top: 1rem;
 }
 
-.modal-link {
-  font-size: 1.2rem;
+.modal-footer {
+  border-top: 1px solid #30363d;
+  padding: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #58a6ff;
+  border-color: #58a6ff;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  border-color: #58a6ff;
   color: #58a6ff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
 }
 
 .no-url {
-  color: gray;
+  color: #8b949e;
   font-style: italic;
 }
 
-.modal-link:hover {
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projects-title {
+    font-size: 2.5rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .project-name {
+    font-size: 1.3rem;
+  }
+
+  .project-short-description {
+    font-size: 1rem;
+  }
+
+  .modal-image {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .projects-description {
+    font-size: 1rem;
+  }
+
+  .project-card {
+    padding: 1.25rem;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animations to sections */
+.projects-section {
+  background-color: #161b22;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-out;
+}
+
+.projects-title {
+  color: #58a6ff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 3rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.projects-description {
   color: #c9d1d9;
+  font-size: 1.2rem;
+  animation: fadeIn 1s ease-out;
+  animation-delay: 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Enhanced Card Styles */
+.project-card {
+  background: linear-gradient(145deg, #1e242c, #0b0e13);
+  border-radius: 15px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 1s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+
+/* Modal animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-modal {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .projects-section,
+  .projects-title,
+  .projects-description,
+  .project-card,
+  .custom-modal {
+    animation: none;
+    opacity: 1;
+  }
 }

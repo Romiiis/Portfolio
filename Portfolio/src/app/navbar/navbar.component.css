@@ -1,53 +1,47 @@
 /* Navbar Styles */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #161b22;
+  font-family: "Courier New", monospace;
+  background-color: #161b22 !important;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   position: sticky;
-  font-family: "Courier New";
   top: 0;
   z-index: 1000;
 }
 
-.navbar-left .logo {
-  font-family: 'Pacifico', cursive;
+.navbar-brand {
+  font-family: "Pacifico", cursive;
   font-size: 2rem;
-  color: #58a6ff;
+  color: #58a6ff !important;
+  margin-right: 6rem; /* Add spacing after logo */
+}
+
+.navbar-brand:hover {
+  color: #58a6ff !important;
   text-decoration: none;
 }
 
-.navbar-center .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
+/* Navbar Links */
+.navbar-nav {
+  gap: 2rem; /* Add larger gap between nav-items */
 }
 
-.navbar-center .nav-links li {
-  position: relative;
-}
-
-.navbar-center .nav-links a {
-  color: #c9d1d9;
-  text-decoration: none;
+.navbar-nav .nav-link {
+  color: #c9d1d9 !important;
   font-size: 1rem;
   font-weight: bold;
+  position: relative;
   transition: color 0.3s ease;
 }
 
-.navbar-center .nav-links a:hover,
-.navbar-center .nav-links a.active {
-  color: #58a6ff;
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #58a6ff !important;
 }
 
 /* Fancy Underline for Active Link */
-.navbar-center .nav-links a.active::after,
-.navbar-center .nav-links a:hover::after {
-  content: '';
+.navbar-nav .nav-link.active::after,
+.navbar-nav .nav-link:hover::after {
+  content: "";
   position: absolute;
   left: 0;
   bottom: -5px;
@@ -58,14 +52,14 @@
   transition: width 0.3s ease;
 }
 
-.navbar-center .nav-links a::after {
+.navbar-nav .nav-link::after {
   width: 0;
 }
 
-/* Improved Contact Button */
-.navbar-right .contact-button {
+/* Contact Button */
+.contact-button {
   background: linear-gradient(135deg, #58a6ff, #4691e6);
-  color: #0d1117;
+  color: #0d1117 !important;
   text-decoration: none;
   padding: 0.6rem 1.5rem;
   border-radius: 25px;
@@ -76,13 +70,79 @@
   border: none;
 }
 
-.navbar-right .contact-button:hover {
+.contact-button:hover {
   background: linear-gradient(135deg, #4691e6, #58a6ff);
   transform: scale(1.05);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
-.navbar-right .contact-button:active {
+.contact-button:active {
   transform: scale(0.95);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+  background: transparent;
+  color: #c9d1d9;
+  border: 2px solid #58a6ff;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.language-switcher:hover {
+  background: #58a6ff;
+  color: #0d1117;
+}
+
+.dropdown-menu {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+.dropdown-item {
+  color: #c9d1d9;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #21262d;
+  color: #58a6ff;
+}
+
+.dropdown-item.active {
+  background-color: #58a6ff;
+  color: #0d1117;
+}
+
+.flag-icon {
+  width: 20px;
+  height: 15px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    gap: 1rem; /* Reduce gap for mobile */
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0.5rem 0;
+  }
+
+  .language-switcher {
+    margin: 1rem auto;
+    display: inline-block;
+  }
+
+  .navbar-brand {
+    margin-right: 0; /* Remove right margin on mobile */
+  }
 }
