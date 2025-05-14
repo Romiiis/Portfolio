@@ -1,0 +1,39 @@
+{
+  "NAVBAR": {
+    "HOME_ITEM": "Domů",
+    "ABOUT_ITEM": "O mně",
+    "TECH_ITEM": "Technologie",
+    "PROJECTS_ITEM": "Projekty",
+    "CONTACT_ITEM": "Kontakt",
+    "SWITCH_THEME_DARK": "Přepnout do tmavého režimu",
+    "SWITCH_THEME_LIGHT": "Přepnout do světlého režimu",
+    "SWITCH_LANGUAGE_CZECH ": "Přepnout do češtiny",
+    "SWITCH_LANGUAGE_ENGLISH": "Přepnout do angličtiny"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "Všechna práva vyhrazena."
+  },
+  "HOME": {
+    "SUBTITLE": "Tvůrce softwaru, který promlouvá lidským jazykem.",
+    "PROJECTS_BTN": "Moje projekty",
+    "CONTACT_BTN": "Kontakt"
+  },
+  "ABOUT": {
+    "JOB_TITLE": "Softwarový vývojář",
+    "BIO1": "Jsem student informatiky s vášní pro programování a vytváření elegantních řešení. Ve svých projektech se zaměřuji na čistý kód a efektivní architekturu, protože věřím, že kvalitní software by měl být nejen funkční, ale i srozumitelný a udržitelný.",
+    "BIO2": "Neustále se učím nové technologie a koncepty, které mi pomáhají zdokonalovat mé programátorské dovednosti. Mou filozofií je, že dobrý kód není jen o správné funkcionalitě, ale také o čitelnosti a jednoduché rozšiřitelnosti. Preferuji elegantní a jasná řešení před zbytečně komplexními - méně je někdy více.",
+    "EXP_TITLE": "Pracovní zkušenosti",
+    "NOW": "současnost",
+    "ES_DESCRIPTION": "Práce na interních projektech pro firmu (fullstack). Brigáda během studia.",
+    "EDU_TITLE": "Vzdělání",
+    "BC_TITLE": "Bakalářské studium - Informatika",
+    "BC_SCHOOL": "Fakulta aplikovaných věd Západočeské univerzity",
+    "SPSCV_TITLE": "Maturitní zkouška - Automatizace ve strojírenství",
+    "SPSCV_SCHOOL": "Střední průmyslová škola a Vyšší odborná škola Chomutov",
+    "PERSONAL_TITLE": "Osobní život",
+    "PERSONAL_DESCRIPTION": "Pocházím z Ústeckého kraje a ve svém volném čase zajdu do posilovny, s kamarády do města nebo autem na výlet.",
+    "CONTACT_PROMPT": "Máte zajímavý projekt a hledáte motivovaného studenta informatiky?",
+    "CONTACT_BTN": "Kontaktujte mě"
+  }
+
+}
