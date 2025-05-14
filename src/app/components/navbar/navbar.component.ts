@@ -4,13 +4,15 @@ import {ThemeService} from '../../services/theme.service';
 import {NgClass} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
 import {TranslationService} from '../../services/translation.service';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   imports: [
     NgClass,
-    TranslatePipe
+    TranslatePipe,
+    RouterLink
   ],
   standalone: true,
   styleUrls: ['./navbar.component.css']

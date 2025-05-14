@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <a href="/" class="logo">
+    <a routerLink="" class="logo">
       <i class="fas fa-code"></i>
       Romiiis
     </a>
@@ -11,11 +11,11 @@
     </button>
 
     <ul class="nav-links" [class.nav-active]="isMobileMenuOpen">
-      <li><a href="/">{{ "NAVBAR.HOME_ITEM" | translate }}</a></li>
-      <li><a href="/about">{{ "NAVBAR.ABOUT_ITEM" | translate}}</a></li>
-      <li><a href="/technologies"> {{ "NAVBAR.TECH_ITEM" | translate }}</a></li>
-      <li><a href="/projects"> {{ "NAVBAR.PROJECTS_ITEM" | translate }}</a></li>
-      <li><a href="/contact"> {{ "NAVBAR.CONTACT_ITEM" | translate }}</a></li>
+      <li><a routerLink="">{{ "NAVBAR.HOME_ITEM" | translate }}</a></li>
+      <li><a routerLink="about">{{ "NAVBAR.ABOUT_ITEM" | translate}}</a></li>
+      <li><a routerLink="technologies">{{ "NAVBAR.TECH_ITEM" | translate }}</a></li>
+      <li><a routerLink="projects">{{ "NAVBAR.PROJECTS_ITEM" | translate }}</a></li>
+      <li><a routerLink="contact">{{ "NAVBAR.CONTACT_ITEM" | translate }}</a></li>
     </ul>
 
     <div class="actions" [class.actions-active]="isMobileMenuOpen">
