@@ -1,9 +1,9 @@
 <div class="technologies-container">
   <div class="header-wrapper">
     <div class="technologies-header">
-      <h1 class="title">{{'Technologie' }}</h1>
+      <h1 class="title">{{ "TECH.TITLE" | translate }}</h1>
       <p class="header-description">
-        Zde je seznam technologií, které používám při vývoji aplikací.
+        {{ "TECH.DESCRIPTION" | translate }}
       </p>
     </div>
   </div>
@@ -20,7 +20,7 @@
       (click)="setActiveCategory('all')"
       [class.active]="activeCategory === 'all'"
       class="filter-btn">
-      {{ 'All' }}
+      {{ "TECH.ALL" | translate }}
     </button>
   </div>
 
@@ -38,7 +38,7 @@
           <div class="tech-details">
             <h3 class="tech-name">{{ tech.name }}</h3>
             <div class="category-badge">
-              <span class="category-name">{{ getCategoryName(category.category) }}</span>
+              <span class="category-name">{{ getCategoryShort(category.category) }}</span>
             </div>
           </div>
         </a>

@@ -2,9 +2,9 @@
   <div class="contact-header">
     <div class="title-container">
       <div class="title-decoration"></div>
-      <h1 class="title">Kontakt</h1>
+      <h1 class="title">{{ "CONTACT.TITLE" | translate }}</h1>
     </div>
-    <p class="subtitle">Máte dotaz nebo zajímavý projekt? Neváhejte mě kontaktovat.</p>
+    <p class="subtitle">{{ "CONTACT.DESCRIPTION" | translate }}</p>
   </div>
 
   <div class="contact-content">
@@ -14,8 +14,8 @@
           <i class="fas fa-envelope"></i>
         </div>
         <div class="info-content">
-          <h3>Email</h3>
-          <p><a href="mailto:roman.pejs@email.com">roman.pejs&#64;email.com</a></p>
+          <h3>{{ "CONTACT.EMAIL_LABEL" | translate }}</h3>
+          <p><a href="mailto:romispejs@gmail.com">romispejs&#64;gmail.com</a></p>
         </div>
       </div>
 
@@ -24,8 +24,8 @@
           <i class="fas fa-map-marker-alt"></i>
         </div>
         <div class="info-content">
-          <h3>Lokalita</h3>
-          <p>Plzeň, Česká republika</p>
+          <h3>{{ "CONTACT.LOCALITY_LABEL" | translate }}</h3>
+          <p>{{ "CONTACT.PILSEN" | translate }}</p>
         </div>
       </div>
 
@@ -34,7 +34,7 @@
           <i class="fas fa-code-branch"></i>
         </div>
         <div class="info-content">
-          <h3>GitHub</h3>
+          <h3>{{ "CONTACT.GITHUB_LABEL" | translate }}</h3>
           <p><a href="https://github.com/Romiiis" target="_blank" rel="noopener noreferrer">github.com/Romiiis</a></p>
         </div>
       </div>
@@ -44,33 +44,34 @@
           <i class="fab fa-linkedin"></i>
         </div>
         <div class="info-content">
-          <h3>LinkedIn</h3>
+          <h3>{{ "CONTACT.LINKEDIN_LABEL" | translate }}</h3>
           <p><a href="https://linkedin.com/in/roman-pejs" target="_blank" rel="noopener noreferrer">linkedin.com/in/roman-pejs</a></p>
         </div>
       </div>
     </div>
 
     <div class="contact-form-container">
-      <h2>Napište mi</h2>
+      <h2>{{ "CONTACT.WRITE_ME" | translate }}</h2>
 
-      <form class="contact-form" (ngSubmit)="submitForm()" #contactForm="ngForm">
+      <form class="contact-form" (ngSubmit)="submitForm()" #contactForm="ngForm" novalidate>
         <div class="form-group">
-          <label for="name">Jméno</label>
+          <label for="name">{{ "CONTACT.NAME_LABEL" | translate }}</label>
           <input
             type="text"
             id="name"
             name="name"
             [(ngModel)]="formData.name"
             required
+            minlength="2"
             #name="ngModel"
-            [class.invalid]="name.invalid && (name.dirty || name.touched)">
-          <span class="validation-error" *ngIf="name.invalid && (name.dirty || name.touched)">
-            Jméno je povinné
+            [class.invalid]="shouldShowError('name') && (!isNameValid() || name.invalid)">
+          <span class="validation-error" *ngIf="shouldShowError('name') && (!isNameValid() || name.invalid)">
+            {{ getNameErrorMessage() }}
           </span>
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">{{ "CONTACT.EMAIL_LABEL" | translate }}</label>
           <input
             type="email"
             id="email"
@@ -79,44 +80,46 @@
             required
             email
             #email="ngModel"
-            [class.invalid]="email.invalid && (email.dirty || email.touched)">
-          <span class="validation-error" *ngIf="email.invalid && (email.dirty || email.touched)">
-            Zadejte platnou emailovou adresu
+            [class.invalid]="shouldShowError('email') && (!isEmailValid() || email.invalid)">
+          <span class="validation-error" *ngIf="shouldShowError('email') && (!isEmailValid() || email.invalid)">
+            {{ getEmailErrorMessage() }}
           </span>
         </div>
 
         <div class="form-group">
-          <label for="subject">Předmět</label>
+          <label for="subject">{{ "CONTACT.SUBJ_LABEL" | translate }}</label>
           <input
             type="text"
             id="subject"
             name="subject"
             [(ngModel)]="formData.subject"
             required
+            minlength="2"
             #subject="ngModel"
-            [class.invalid]="subject.invalid && (subject.dirty || subject.touched)">
-          <span class="validation-error" *ngIf="subject.invalid && (subject.dirty || subject.touched)">
-            Předmět je povinný
+            [class.invalid]="shouldShowError('subject') && (!isSubjectValid() || subject.invalid)">
+          <span class="validation-error" *ngIf="shouldShowError('subject') && (!isSubjectValid() || subject.invalid)">
+            {{ getSubjectErrorMessage() }}
           </span>
         </div>
 
         <div class="form-group">
-          <label for="message">Zpráva</label>
+          <label for="message">{{ "CONTACT.MESSAGE_LABEL" | translate }}</label>
           <textarea
             id="message"
             name="message"
             rows="5"
             [(ngModel)]="formData.message"
             required
+            minlength="10"
             #message="ngModel"
-            [class.invalid]="message.invalid && (message.dirty || message.touched)"></textarea>
-          <span class="validation-error" *ngIf="message.invalid && (message.dirty || message.touched)">
-            Zpráva je povinná
+            [class.invalid]="shouldShowError('message') && (!isMessageValid() || message.invalid)"></textarea>
+          <span class="validation-error" *ngIf="shouldShowError('message') && (!isMessageValid() || message.invalid)">
+            {{ getMessageErrorMessage() }}
           </span>
         </div>
 
-        <button type="submit" class="submit-btn" [disabled]="contactForm.invalid || submitting">
-          <span *ngIf="!submitting">Odeslat</span>
+        <button type="submit" class="submit-btn" [disabled]="submitting">
+          <span *ngIf="!submitting">{{ "CONTACT.SEND_BTN" | translate }}</span>
           <span *ngIf="submitting" class="spinner"></span>
         </button>
       </form>
@@ -127,24 +130,6 @@
           <p>{{ formStatus.message }}</p>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="social-links">
-    <h3>Najdete mě také na</h3>
-    <div class="social-icons">
-      <a href="https://github.com/Romiiis" target="_blank" rel="noopener noreferrer" class="social-icon">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://linkedin.com/in/roman-pejs" target="_blank" rel="noopener noreferrer" class="social-icon">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://twitter.com/romiiis" target="_blank" rel="noopener noreferrer" class="social-icon">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://instagram.com/romiiis" target="_blank" rel="noopener noreferrer" class="social-icon">
-        <i class="fab fa-instagram"></i>
-      </a>
     </div>
   </div>
 </div>

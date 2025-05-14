@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {TranslatePipe} from '../../pipes/translate.pipe';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',

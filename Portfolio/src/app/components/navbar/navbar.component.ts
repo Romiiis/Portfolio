@@ -2,8 +2,8 @@
 import {Component} from '@angular/core';
 import {ThemeService} from '../../services/theme.service';
 import {NgClass} from '@angular/common';
-import {TranslatePipe} from '../../pipes/translate.pipe';
-import {TranslationService} from '../../services/translation/translation.service';
+import {TranslatePipe} from '@ngx-translate/core';
+import {TranslationService} from '../../services/translation.service';
 
 @Component({
   selector: 'app-navbar',

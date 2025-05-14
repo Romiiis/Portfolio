@@ -11,10 +11,7 @@ import {FooterComponent} from './components/footer/footer.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'portfolio';
-
-  constructor(private cdr: ChangeDetectorRef) {}
-
+  title = 'Romiis Portfolio';
 
 
 }

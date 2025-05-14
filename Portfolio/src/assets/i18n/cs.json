@@ -31,9 +31,47 @@
     "SPSCV_TITLE": "Maturitní zkouška - Automatizace ve strojírenství",
     "SPSCV_SCHOOL": "Střední průmyslová škola a Vyšší odborná škola Chomutov",
     "PERSONAL_TITLE": "Osobní život",
-    "PERSONAL_DESCRIPTION": "Pocházím z Ústeckého kraje a ve svém volném čase zajdu do posilovny, s kamarády do města nebo autem na výlet.",
+    "PERSONAL_DESCRIPTION": "Pocházím z Ústeckého kraje a ve svém volném čase zajdu do posilovny, s kamarády do města, na výlet nebo se podívat na hokej.",
     "CONTACT_PROMPT": "Máte zajímavý projekt a hledáte motivovaného studenta informatiky?",
     "CONTACT_BTN": "Kontaktujte mě"
+  },
+  "TECH": {
+    "TITLE": "Technologie",
+    "DESCRIPTION": "Zde je seznam technologií, se kterými jsem pracoval. Většina z nich je součástí mých projektů, které najdete v sekci Projekty.",
+    "LANGUAGES": "Programovací jazyky",
+    "LANGUAGES_SHORT": "Jazyk",
+    "FRAMEWORKS": "Frameworky",
+    "FRAMEWORKS_SHORT": "Framework",
+    "TOOLS": "Nástroje",
+    "TOOLS_SHORT": "Nástroj",
+    "ALL": "Všechny technologie"
+  },
+  "CONTACT": {
+    "TITLE": "Kontakt",
+    "DESCRIPTION": "Máte dotaz nebo zajímavý projekt? Neváhejte mě kontaktovat.",
+    "EMAIL_LABEL": "E-mail",
+    "LOCALITY_LABEL": "Lokalita",
+    "PILSEN": "Plzeň, Česká republika",
+    "GITHUB_LABEL": "GitHub",
+    "LINKEDIN_LABEL": "LinkedIn",
+    "WRITE_ME": "Napište mi",
+    "NAME_LABEL": "Jméno",
+    "SUBJ_LABEL": "Předmět",
+    "MESSAGE_LABEL": "Zpráva",
+    "SEND_BTN": "Odeslat",
+    "FIND_ME": "Najdete mě také na",
+    "NAME_WRONG": "Jméno je povinné",
+    "NAME_TOO_SHORT": "Jméno musí mít alespoň 2 znaky",
+    "SUBJ_WRONG": "Předmět je povinný",
+    "SUBJ_TOO_SHORT": "Předmět musí mít alespoň 2 znaky",
+    "MESSAGE_WRONG": "Zpráva je povinná",
+    "MESSAGE_TOO_SHORT": "Zpráva musí mít alespoň 10 znaků",
+    "EMAIL_WRONG": "E-mail je povinný",
+    "EMAIL_INVALID": "E-mail není platný",
+    "SEND_SUCCESS": "Zpráva byla úspěšně odeslána. Ozvu se co nejdříve.",
+    "SEND_ERROR": "Nastala chyba při odesílání zprávy. Zkuste to prosím později."
+
+
   }
 
 }
