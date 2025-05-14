@@ -1,34 +1,58 @@
-import {Injectable, Renderer2, RendererFactory2} from '@angular/core';
+// theme.service.ts
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class ThemeService {
-    private renderer: Renderer2;
-    private currentTheme: 'light' | 'dark' = 'dark';
+  private theme: 'light' | 'dark' = 'light';
 
-    constructor(rendererFactory: RendererFactory2) {
-        this.renderer = rendererFactory.createRenderer(null, null);
-        this.initTheme();
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.initTheme();
+  }
+
+  initTheme(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Načtení tématu z localStorage
+      const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
+
+      // Použití preferovaného barevného schématu systému jako fallback
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      // Nastavení tématu
+      this.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+      // Aplikace tématu
+      this.applyTheme();
+    }
+  }
+
+  getTheme(): string {
+    return this.theme;
+  }
+
+  toggleTheme(): void {
+    this.theme = this.theme === 'light' ? 'dark' : 'light';
+    this.applyTheme();
+  }
+
+  private applyTheme(): void {
+    const classList = this.document.documentElement.classList;
+
+    if (this.theme === 'dark') {
+      classList.add('dark-theme');
+      classList.remove('light-theme');
+    } else {
+      classList.add('light-theme');
+      classList.remove('dark-theme');
     }
 
-    initTheme() {
-        const storedTheme = localStorage.getItem('theme') as 'light' | 'dark';
-        this.setTheme(storedTheme || this.currentTheme);
-    }
-
-    toggleTheme() {
-        const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
-        this.setTheme(newTheme);
-    }
-
-    setTheme(theme: 'light' | 'dark') {
-        this.currentTheme = theme;
-        localStorage.setItem('theme', theme);
-
-        this.renderer.removeClass(document.body, theme === 'dark' ? 'light-theme' : 'dark-theme');
-        this.renderer.addClass(document.body, theme + '-theme');
-    }
-
-    getTheme() {
-        return this.currentTheme;
-    }
+    // Uložení tématu do localStorage
+    localStorage.setItem('theme', this.theme);
+  }
 }

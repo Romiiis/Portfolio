@@ -36,8 +36,12 @@ body {
   min-height: 0; /* Důležité pro správné fungování flexboxu */
 }
 
+:root {
+  color-scheme: light;
+}
 
 .dark-theme {
+  color-scheme: dark;
   --navbar-bg: #1f1f1f;
   --footer-bg: #1f1f1f;
   --footer-border: #333;
@@ -51,6 +55,7 @@ body {
 }
 
 .light-theme {
+  color-scheme: light;
   --navbar-bg: #ffffff;
   --footer-bg: #ffffff;
   --footer-border: #ccc;

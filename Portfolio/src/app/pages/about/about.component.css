@@ -1,0 +1,233 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: calc(100vh - 200px);
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle-bar {
+  height: 3px;
+  width: 60px;
+  background-color: var(--accent-color);
+  margin: 0 auto;
+}
+
+.about-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: rgba(var(--accent-rgb), 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--accent-color);
+}
+
+.profile-image i {
+  font-size: 3.5rem;
+  color: var(--accent-color);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.job-title {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.bio-section, .personal-section {
+  line-height: 1.8;
+  color: var(--text-color);
+  font-size: 1.05rem;
+}
+
+.bio-section p, .personal-section p {
+  margin-bottom: 1rem;
+}
+
+.experience-section, .education-section, .personal-section {
+  margin-top: 1rem;
+}
+
+.experience-section h3, .education-section h3, .personal-section h3 {
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  color: var(--text-color);
+}
+
+.experience-section h3::after, .education-section h3::after, .personal-section h3::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 50px;
+  background-color: var(--accent-color);
+  bottom: -8px;
+  left: 0;
+}
+
+.experience-item, .education-item {
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(var(--accent-rgb), 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.experience-header {
+  margin-bottom: 0.7rem;
+}
+
+.experience-item h4, .education-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+}
+
+.company, .institution {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+}
+
+.period {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.contact-prompt {
+  margin-top: 4rem;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: rgba(var(--accent-rgb), 0.05);
+  width: 100%;
+}
+
+.contact-prompt p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 0.9rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: white;
+  background-color: var(--accent-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  filter: brightness(110%);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Media Queries pro responzivitu */
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .profile-info {
+    align-items: center;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .experience-section h3::after, .education-section h3::after, .personal-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .experience-section h3, .education-section h3, .personal-section h3 {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    padding: 3rem 1rem;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-image i {
+    font-size: 3rem;
+  }
+
+  .profile-info h2 {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .experience-item, .education-item {
+    padding-left: 0.7rem;
+  }
+}

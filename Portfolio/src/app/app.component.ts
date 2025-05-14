@@ -13,16 +13,8 @@ import {FooterComponent} from './components/footer/footer.component';
 export class AppComponent {
   title = 'portfolio';
 
-  @ViewChild('footer') footerEl: ElementRef | undefined;
-  footerHeight: number = 0;
-
   constructor(private cdr: ChangeDetectorRef) {}
 
-  ngAfterViewInit() {
-    // Získání skutečné výšky footeru
-    // @ts-ignore
-    this.footerHeight = this.footerEl.nativeElement.offsetHeight;
-    this.cdr.detectChanges();
-  }
+
 
 }
