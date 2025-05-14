@@ -1,15 +1,29 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { TechnologiesComponent } from './pages/technologies/technologies.component';
-import { ProjectsComponent } from './pages/projects/projects.component';
-import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'technologies', component: TechnologiesComponent },
-  { path: 'projects', component: ProjectsComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: '**', redirectTo: 'home' } // Redirect unknown routes to Home
+  {
+    "path": "home",
+    "loadComponent": () => import('./pages/home/home.component').then(m => m.HomeComponent),
+  },
+  {
+    "path": "about",
+    "loadComponent": () => import("./pages/about/about.component").then(m => m.AboutComponent),
+  },
+  {
+    "path": "technologies",
+    "loadComponent": () => import("./pages/technologies/technologies.component").then(m => m.TechnologiesComponent),
+  },
+  {
+    "path": "projects",
+    "loadComponent": () => import("./pages/projects/projects.component").then(m => m.ProjectsComponent),
+  },
+  {
+    "path": "contact",
+    "loadComponent": () => import("./pages/contact/contact.component").then(m => m.ContactComponent),
+  },
+  {
+    "path": "**",
+    "redirectTo": "home",
+    "pathMatch": "full",
+  },
 ];

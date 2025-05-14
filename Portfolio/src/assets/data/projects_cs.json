@@ -36,6 +36,18 @@
     "name": "Quiz Master",
     "shortDescription": "Webová aplikace pro tvorbu kvízů na veletrzích práce a při náboru. (Vytvořeno v práci)",
     "longDescription": "V rámci této aplikace jsem řešil vytváření náborových testů, generování URL odkazů, nastavení času, během kterého mohou kandidáti test vyplnit, řešení výpadků internetu a další. Pro vyhodnocování otevřených otázek jsem hledal AI modely, které by mohly běžet na našich strojích, a zaměřoval jsem se na vytváření efektivních promptů."
+  },
+  {
+    "name": "EqualLib",
+    "shortDescription": "Knihovna pro hluboké porovnávání objektů.",
+    "longDescription": "Tato knihovna vznikla v rámcí Bakalářské práce. Je napsaná v Javě a slouží k hlubokému porovnávání objektů pomocí reflexe. Knihovna nabízí i modifikovat porovnávající algoritmus, který je použit pro porovnávání objektů. Knihovna je napsaná tak, aby byla co nejvíce univerzální a mohla být použita v různých projektech.",
+    "projectUrl": "https://github.com/Romiiis/EqualLib"
+  },
+  {
+    "name": "EqualLib - Playground",
+    "shortDescription": "Testovací aplikace pro EqualLib.",
+    "longDescription": "Tato aplikace slouží jako testovací aplikace pro EqualLib. Obsahuje různé příklady použití knihovny a ukazuje, jak ji používat v různých situacích. Aplikace je napsaná v Javě a používá JavaFX pro GUI. Pomocí ní je možné vytvářet a modifikovat objekty na kterých lze otestovat knihovnu EqualLib. ",
+    "projectUrl": "https://github.com/Romiiis/EqualLib-Playground"
   }
 
 ]

@@ -1,127 +1,295 @@
-/* General Reset */
-* {
-  margin: 0;
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 60px;
+  bottom: 70px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.05) 0%, transparent 70%);
 }
 
-/* Home Page */
-.home-page {
-  height: 65vh; /* Maintain height for the home page */
+/* Vylepšený první kruh - vlevo nahoře */
+.home-container::before {
+  content: '';
+  position: absolute;
+  width: 50vw; /* Zvětšení velikosti */
+  height: 50vw; /* Zvětšení velikosti */
+  background: linear-gradient(45deg, rgba(var(--accent-rgb), 0.5), transparent); /* Zvýšení průhlednosti */
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  top: -20vw;
+  left: -20vw;
+  z-index: -1;
+  animation: float 15s ease-in-out infinite alternate;
+  box-shadow: 0 0 50px rgba(var(--accent-rgb), 0.15); /* Přidání stínu pro lepší viditelnost */
+  border: 1px solid rgba(var(--accent-rgb), 0.1); /* Přidání jemného okraje */
 }
 
-/* Hero Section */
-.hero-section {
-  max-width: 1200px; /* Limit the maximum width */
-  width: 100%; /* Ensure it takes full width */
-  background-color: #161b22; /* Background color */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-  animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
-
+/* Vylepšený druhý kruh - vpravo dole */
+.home-container::after {
+  content: '';
+  position: absolute;
+  width: 40vw; /* Zvětšení velikosti */
+  height: 40vw; /* Zvětšení velikosti */
+  background: linear-gradient(45deg, transparent, rgba(var(--accent-rgb), 0.25)); /* Zvýšení průhlednosti */
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  bottom: -15vw;
+  right: -15vw;
+  z-index: -1;
+  animation: float 20s ease-in-out infinite alternate-reverse;
+  box-shadow: 0 0 50px rgba(var(--accent-rgb), 0.15); /* Přidání stínu pro lepší viditelnost */
+  border: 1px solid rgba(var(--accent-rgb), 0.1); /* Přidání jemného okraje */
 }
 
-/* Hero Icon */
-.hero-icon {
-  font-size: 150px; /* Default icon size for larger screens */
-  color: #58a6ff; /* Icon color */
-  animation: float 3s ease-in-out infinite; /* Floating animation */
-  margin: 2rem; /* Margin around the icon */
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+  color: var(--text-color);
+  position: relative;
+  animation: slideInUp 1s ease, glowText 10s ease-in-out infinite;
 }
 
-/* Responsive adjustments for the icon */
-@media (max-width: 768px) {
-  .hero-icon {
-    font-size: 100px; /* Smaller icon size for mobile screens */
-    margin: 0.5rem;
-    padding-top: 2rem;
-
-
-  }
+.title i {
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+  font-size: 3rem;
+  display: inline-block;
 }
 
-/* Hero Title */
-.hero-title {
-  font-size: 3.5rem; /* Title size */
-  font-weight: bold; /* Bold title */
-  color: #58a6ff; /* Title color */
-  padding-top: 0;
-  margin-top: 0;
-  margin-bottom: 1rem; /* Margin below title */
-  animation: pulse 2s infinite; /* Pulse animation */
-  font-family: "Courier New", serif;
-
-
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  line-height: 1.6;
+  animation: slideInUp 1s ease 0.2s both;
+  position: relative;
 }
 
-/* Hero Description */
-.hero-description {
-  font-size: 1.5rem; /* Description size */
-  line-height: 1.8; /* Line height for readability */
-  font-family: "Courier New", serif;
 
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+  animation: slideInUp 1s ease 0.4s both;
+  position: relative;
+  z-index: 10;
 }
 
-/* Highlight */
-.highlight {
-  color: #58a6ff; /* Highlight color */
-}
-
-/* Hero Buttons */
-.hero-buttons {
-  display: flex; /* Flexbox for buttons */
-  gap: 1.5rem; /* Gap between buttons */
-  font-family: "Courier New", serif;
-
-}
-
-/* Button Styles */
 .btn {
-  text-decoration: none; /* Remove underline */
-  padding: 1rem 2rem; /* Button padding */
-  border-radius: 8px; /* Rounded corners */
-  font-size: 1.2rem; /* Button font size */
-  font-weight: bold; /* Bold text */
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Transition effects */
+  padding: 0.9rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: white;
+  background-color: var(--accent-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.primary-btn {
-  background-color: #58a6ff; /* Primary button color */
-  color: #0d1117; /* Primary button text color */
-  border: 2px solid #58a6ff; /* Border color */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.6s;
 }
 
-.primary-btn:hover {
-  background-color: #0d1117; /* Hover background color */
-  color: #58a6ff; /* Hover text color */
-  transform: scale(1.1); /* Scale effect on hover */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background-color: var(--accent-color);
+  filter: brightness(110%);
 }
 
-.secondary-btn {
-  background-color: transparent; /* Transparent background */
-  color: #58a6ff; /* Secondary button text color */
-  border: 2px solid #58a6ff; /* Border color */
+.btn:hover::before {
+  left: 100%;
 }
 
-.secondary-btn:hover {
-  background-color: #58a6ff; /* Hover background color */
-  color: #0d1117; /* Hover text color */
-  transform: scale(1.1); /* Scale effect on hover */
+.btn:active {
+  transform: translateY(1px);
 }
 
-/* Animations */
-@keyframes fadeIn {
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.btn.secondary:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Typing cursor effect */
+.subtitle::before {
+  content: '|';
+  top: 0;
+  color: var(--accent-color);
+  opacity: 0;
+  animation: blink 1s step-end infinite;
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.particle:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation: particleFloat 20s linear infinite;
+}
+
+.particle:nth-child(2) {
+  top: 80%;
+  left: 40%;
+  animation: particleFloat 15s linear infinite reverse;
+}
+
+.particle:nth-child(3) {
+  top: 40%;
+  left: 80%;
+  animation: particleFloat 25s linear infinite;
+}
+
+/* Animace */
+@keyframes slideInUp {
   from {
-    opacity: 0; /* Start invisible */
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    opacity: 1; /* End visible */
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+@keyframes glowText {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(var(--accent-rgb), 0.1);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.3);
   }
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0); /* No movement */
+  0% {
+    transform: translate(0, 0) rotate(0deg);
   }
   50% {
-    transform: translateY(-10px); /* Float effect */
+    transform: translate(5%, 5%) rotate(5deg);
+  }
+  100% {
+    transform: translate(-5%, -5%) rotate(-5deg);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(100px, 50px);
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(0, 100px);
+    opacity: 0;
+  }
+}
+
+/* Media Queries pro responzivitu */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .title i {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .home-container {
+    padding: 1.5rem;
+  }
+
+  .home-container::before,
+  .home-container::after {
+    width: 50vw;
+    height: 50vw;
   }
 }

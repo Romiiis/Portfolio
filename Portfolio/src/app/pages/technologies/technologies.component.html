@@ -1,29 +1,48 @@
-<div class="technologies-page min-vh-100">
-  <div class="container py-5">
-    <div class="technologies-section p-4">
-      <h1 class="technologies-title text-center mb-5">{{ 'TECHNOLOGIES.TITLE' | translate }}</h1>
-      <div class="technologies-categories">
-        <div class="technology-category mb-5" *ngFor="let category of technologyCategories">
-          <h2 class="category-title mb-4">{{ category.category | translate }}</h2>
-          <div class="technologies-grid row g-4 ">
-            <div class="col-6 col-sm-4 col-md-3 col-xl-2" *ngFor="let tech of category.technologies">
-              <a
-                class="technology-card h-100"
-                [href]="tech.url"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div class="card-glow"></div>
-                <div class="card-content align-items-center">
-                  <fa-icon *ngIf="tech.icon" [icon]="tech.icon" class="technology-icon "></fa-icon>
-                  <div class="card-divider"></div>
-                  <p class="technology-name">{{ tech.name }}</p>
-                </div>
-              </a>
+<div class="technologies-container">
+  <div class="header-wrapper">
+    <div class="technologies-header">
+      <h1 class="title">{{ "TECH.TITLE" | translate }}</h1>
+      <p class="header-description">
+        {{ "TECH.DESCRIPTION" | translate }}
+      </p>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <button
+      *ngFor="let category of getUniqueCategories()"
+      (click)="setActiveCategory(category)"
+      [class.active]="activeCategory === category || activeCategory === 'all'"
+      class="filter-btn">
+      {{ getCategoryName(category) }}
+    </button>
+    <button
+      (click)="setActiveCategory('all')"
+      [class.active]="activeCategory === 'all'"
+      class="filter-btn">
+      {{ "TECH.ALL" | translate }}
+    </button>
+  </div>
+
+  <div class="tech-cards-container">
+    <ng-container *ngFor="let category of technologyCategories">
+      <ng-container *ngFor="let tech of category.technologies">
+        <a *ngIf="shouldShowTech(category.category)"
+           [href]="tech.url"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="tech-card">
+          <div class="tech-icon-wrapper">
+            <i [class]="getIconClasses(tech.icon)"></i>
+          </div>
+          <div class="tech-details">
+            <h3 class="tech-name">{{ tech.name }}</h3>
+            <div class="category-badge">
+              <span class="category-name">{{ getCategoryShort(category.category) }}</span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </a>
+      </ng-container>
+    </ng-container>
   </div>
 </div>

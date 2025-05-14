@@ -1,22 +1,11 @@
-import { Component } from '@angular/core';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { faJava, faPython, faJs, faAngular, faNodeJs, faDocker, faGit, faHtml5, faCss3, faPhp } from '@fortawesome/free-brands-svg-icons';
-import { faDatabase, faCode } from '@fortawesome/free-solid-svg-icons';
-import {NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
-import {FaIconComponent} from '@fortawesome/angular-fontawesome';
-import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {Component} from '@angular/core';
+import {NgForOf, NgIf} from '@angular/common';
+import {IconDefinition} from '@fortawesome/fontawesome-svg-core';
+import {TechnologyCategory} from '../../model/TechnologyCategory';
+import {TechnologiesService} from '../../services/technologies.service';
+import {TranslatePipe, Translation} from '@ngx-translate/core';
+import {TranslationService} from '../../services/translation.service';
 
-
-interface Technology {
-  name: string;
-  icon: IconDefinition; // Optional Font Awesome icon
-  url: string;           // URL for the technology
-}
-
-interface TechnologyCategory {
-  category: string;
-  technologies: Technology[];
-}
 
 @Component({
   selector: 'app-technologies',
@@ -24,49 +13,75 @@ interface TechnologyCategory {
   standalone: true,
   imports: [
     NgForOf,
-    FaIconComponent,
     NgIf,
-    TranslatePipe,
+    TranslatePipe
   ],
   styleUrls: ['./technologies.component.css']
 })
 export class TechnologiesComponent {
-  technologyCategories: TechnologyCategory[] = [
-    {
-      category: 'TECHNOLOGIES.LANGUAGES',
-      technologies: [
-        { name: 'Assembler', icon: faCode, url: 'https://en.wikipedia.org/wiki/Assembly_language' },
-        { name: 'C', icon: faCode, url: 'https://en.wikipedia.org/wiki/C_(programming_language)' },
-        { name: 'C++', icon: faCode, url: 'https://en.wikipedia.org/wiki/C%2B%2B' },
-        { name: 'C#', icon: faCode, url: 'https://learn.microsoft.com/en-us/dotnet/csharp/' },
-        { name: 'Java', icon: faJava, url: 'https://www.java.com/' },
-        { name: 'Python', icon: faPython, url: 'https://www.python.org/' },
-        { name: 'JavaScript', icon: faJs, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
-        { name: 'TypeScript', icon: faCode, url: 'https://www.typescriptlang.org/' },
-        { name: 'SQL', icon: faDatabase, url: 'https://en.wikipedia.org/wiki/SQL' },
-        { name: 'PHP', icon: faPhp, url: 'https://www.php.net/' },
-        { name: 'Matlab', icon: faCode, url: 'https://www.mathworks.com/products/matlab.html' }
-      ].sort((a, b) => a.name.localeCompare(b.name))
-    },
-    {
-      category: 'TECHNOLOGIES.FRAMEWORKS',
-      technologies: [
-        { name: 'Angular', icon: faAngular, url: 'https://angular.io/' },
-        { name: 'Node.js', icon: faNodeJs, url: 'https://nodejs.org/' },
-        { name: 'Java Spring', icon: faCode, url: 'https://spring.io/' },
-        { name: 'HTML & CSS', icon: faHtml5, url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
-        { name: 'Spigot (Minecraft)', icon: faCode, url: 'https://www.spigotmc.org/' }
-      ].sort((a, b) => a.name.localeCompare(b.name))
-    },
-    {
-      category: 'TECHNOLOGIES.TOOLS',
-      technologies: [
-        { name: 'Docker', icon: faDocker, url: 'https://www.docker.com/' },
-        { name: 'Git', icon: faGit, url: 'https://git-scm.com/' },
-        { name: 'MongoDB', icon: faDatabase, url: 'https://www.mongodb.com/' }
-      ].sort((a, b) => a.name.localeCompare(b.name))
-    }
-  ];
 
-  constructor(private translate: TranslateService) {}
+
+  technologyCategories: TechnologyCategory[] = [];
+  loading = true;
+  error = false;
+  activeCategory = 'all';
+
+  constructor(private technologiesService: TechnologiesService, private translate: TranslationService) {
+  }
+
+  ngOnInit(): void {
+    this.loadTechnologies();
+    this.activeCategory = 'all';
+
+    // Odebíráme data z BehaviorSubject pro případné aktualizace
+    this.technologiesService.technologyCategories$.subscribe(
+      categories => {
+        this.technologyCategories = categories;
+      }
+    );
+  }
+
+  loadTechnologies(): void {
+    this.loading = true;
+    this.error = false;
+
+    this.technologiesService.loadTechnologies().subscribe({
+      next: (data) => {
+        this.technologyCategories = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Chyba při načítání technologií', err);
+        this.error = true;
+        this.loading = false;
+      }
+    });
+  }
+
+  setActiveCategory(category: string) {
+    this.activeCategory = category;
+  }
+
+  shouldShowTech(category: string): boolean {
+    return this.activeCategory === 'all' || this.activeCategory === category;
+  }
+
+  getUniqueCategories(): string[] {
+    return this.technologyCategories.map(cat => cat.category);
+  }
+
+  getIconClasses(icon: IconDefinition): string {
+    if (!icon) return 'fas fa-code';
+    const iconName = icon.iconName;
+    const prefix = icon.prefix;
+    return `${prefix} fa-${iconName}`;
+  }
+
+  getCategoryName(category: string): string {
+    return this.translate.translate("TECH."+category);
+  }
+
+  getCategoryShort(category: string) {
+    return this.translate.translate("TECH."+category+"_SHORT");
+  }
 }

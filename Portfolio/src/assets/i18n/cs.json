@@ -1,61 +1,83 @@
 {
   "NAVBAR": {
-    "HOME": "Domů",
-    "ABOUT": "O mně",
-    "TECHNOLOGIES": "Technologie",
-    "PROJECTS": "Projekty",
-    "CONTACT": "Kontakt"
-  },
-  "HOME": {
-    "DESCRIPTION": "Vítejte v mém portfoliu. Jsem vývojář, který se nebojí nových výzev a rád se učí novým věcem.",
-    "PROJECTS_BUTTON": "Moje Projekty",
-    "CONTACT_BUTTON": "Kontaktujte Mě"
-  },
-  "ABOUT": {
-    "TITLE": "O MNĚ",
-    "DESCRIPTION": "Vítejte na mé osobní stránce! Zde se můžete dozvědět více o mém zázemí, koníčcích a zkušenostech.",
-    "BIOGRAPHY": {
-      "TITLE": "Biografie",
-      "DESCRIPTION": "Narodil jsem se v únoru 2003 v Žatci. Tam jsem navštěvoval základní školu a později jsem nastoupil na Střední průmyslovou školu v Chomutově, kde jsem studoval obor Automatizační systémy. Po úspěšném složení maturitní zkoušky jsem pokračoval ve studiu na Fakultě aplikovaných věd Západočeské univerzity v Plzni, kde v současné době studuji obor Informatika."
-    },
-    "HOBBIES": {
-      "TITLE": "Koníčky",
-      "DESCRIPTION": "Mezi mé koníčky patří chození do posilovny, trávení času s přáteli, poslouchání hudby, hraní na kytaru a noční projížďky."
-    },
-    "PETS": {
-      "TITLE": "Domácí mazlíčci",
-      "DESCRIPTION": "Žiji se dvěma kočkami, Luciferem a Foxy. Kromě toho v Žatci žije křeček jménem Šmudlina."
-    },
-    "WORK": {
-      "TITLE": "Pracovní zkušenosti",
-      "DESCRIPTION": "Od dubna 2024 pracuji jako Trainee ve studentské laboratoři společnosti Eurosoftware S.R.O."
-    }
-  },
-  "TECHNOLOGIES": {
-    "TITLE": "TECHNOLOGIE",
-    "LANGUAGES": "Programovací jazyky",
-    "FRAMEWORKS": "Frameworky a knihovny",
-    "TOOLS": "Nástroje a platformy"
-  },
-  "PROJECTS": {
-    "TITLE": "PROJEKTY",
-    "DESCRIPTION": "Zde najdete výběr mých projektů. Kliknutím na projekt se dozvíte více informací.",
-    "MODAL": {
-      "VIEW": "Zobrazit projekt",
-      "NO_LINK": "Odkaz není k dispozici"
-    }
-  },
-  "CONTACT": {
-    "TITLE": "KONTAKTUJTE MĚ",
-    "DESCRIPTION": "Neváhejte mě kontaktovat! Můžete použít formulář níže pro zaslání zprávy nebo mě kontaktovat přes sociální sítě.",
-    "FORM": {
-      "NAME": "Vaše jméno",
-      "EMAIL": "Váš email",
-      "MESSAGE": "Vaše zpráva",
-      "SUBMIT": "Odeslat"
-    }
+    "HOME_ITEM": "Domů",
+    "ABOUT_ITEM": "O mně",
+    "TECH_ITEM": "Technologie",
+    "PROJECTS_ITEM": "Projekty",
+    "CONTACT_ITEM": "Kontakt",
+    "SWITCH_THEME_DARK": "Přepnout do tmavého režimu",
+    "SWITCH_THEME_LIGHT": "Přepnout do světlého režimu",
+    "SWITCH_LANGUAGE_CZECH ": "Přepnout do češtiny",
+    "SWITCH_LANGUAGE_ENGLISH": "Přepnout do angličtiny"
   },
   "FOOTER": {
-    "COPYRIGHT": "Všechna práva vyhrazena"
+    "COPYRIGHT": "Všechna práva vyhrazena."
+  },
+  "HOME": {
+    "SUBTITLE": "Tvůrce softwaru, který promlouvá lidským jazykem.",
+    "PROJECTS_BTN": "Moje projekty",
+    "CONTACT_BTN": "Kontakt"
+  },
+  "ABOUT": {
+    "TITLE": "O mně",
+    "JOB_TITLE": "Softwarový vývojář",
+    "BIO1": "Jsem student informatiky s vášní pro programování a vytváření elegantních řešení. Ve svých projektech se zaměřuji na čistý kód a efektivní architekturu, protože věřím, že kvalitní software by měl být nejen funkční, ale i srozumitelný a udržitelný.",
+    "BIO2": "Neustále se učím nové technologie a koncepty, které mi pomáhají zdokonalovat mé programátorské dovednosti. Mou filozofií je, že dobrý kód není jen o správné funkcionalitě, ale také o čitelnosti a jednoduché rozšiřitelnosti. Preferuji elegantní a jasná řešení před zbytečně komplexními - méně je někdy více.",
+    "EXP_TITLE": "Pracovní zkušenosti",
+    "NOW": "současnost",
+    "ES_DESCRIPTION": "Práce na interních projektech pro firmu (fullstack). Brigáda během studia.",
+    "EDU_TITLE": "Vzdělání",
+    "BC_TITLE": "Bakalářské studium - Informatika",
+    "BC_SCHOOL": "Fakulta aplikovaných věd Západočeské univerzity",
+    "SPSCV_TITLE": "Maturitní zkouška - Automatizace ve strojírenství",
+    "SPSCV_SCHOOL": "Střední průmyslová škola a Vyšší odborná škola Chomutov",
+    "PERSONAL_TITLE": "Osobní život",
+    "PERSONAL_DESCRIPTION": "Pocházím z Ústeckého kraje a ve svém volném čase zajdu do posilovny, s kamarády do města, na výlet nebo se podívat na hokej.",
+    "CONTACT_PROMPT": "Máte zajímavý projekt a hledáte motivovaného studenta informatiky?",
+    "CONTACT_BTN": "Kontaktujte mě"
+  },
+  "TECH": {
+    "TITLE": "Technologie",
+    "DESCRIPTION": "Zde je seznam technologií, se kterými jsem pracoval. Většina z nich je součástí mých projektů, které najdete v sekci Projekty.",
+    "LANGUAGES": "Programovací jazyky",
+    "LANGUAGES_SHORT": "Jazyk",
+    "FRAMEWORKS": "Frameworky",
+    "FRAMEWORKS_SHORT": "Framework",
+    "TOOLS": "Nástroje",
+    "TOOLS_SHORT": "Nástroj",
+    "ALL": "Všechny technologie"
+  },
+  "PROJECTS": {
+    "TITLE": "Moje projekty",
+    "VIEW_CODE": "Prohlédnout kód"
+  },
+  "CONTACT": {
+    "TITLE": "Kontakt",
+    "DESCRIPTION": "Máte dotaz nebo zajímavý projekt? Neváhejte mě kontaktovat.",
+    "EMAIL_LABEL": "E-mail",
+    "LOCALITY_LABEL": "Lokalita",
+    "PILSEN": "Plzeň, Česká republika",
+    "GITHUB_LABEL": "GitHub",
+    "LINKEDIN_LABEL": "LinkedIn",
+    "WRITE_ME": "Napište mi",
+    "NAME_LABEL": "Jméno",
+    "SUBJ_LABEL": "Předmět",
+    "MESSAGE_LABEL": "Zpráva",
+    "SEND_BTN": "Odeslat",
+    "FIND_ME": "Najdete mě také na",
+    "NAME_WRONG": "Jméno je povinné",
+    "NAME_TOO_SHORT": "Jméno musí mít alespoň 2 znaky",
+    "SUBJ_WRONG": "Předmět je povinný",
+    "SUBJ_TOO_SHORT": "Předmět musí mít alespoň 2 znaky",
+    "MESSAGE_WRONG": "Zpráva je povinná",
+    "MESSAGE_TOO_SHORT": "Zpráva musí mít alespoň 10 znaků",
+    "EMAIL_WRONG": "E-mail je povinný",
+    "EMAIL_INVALID": "E-mail není platný",
+    "SEND_SUCCESS": "Zpráva byla úspěšně odeslána. Ozvu se co nejdříve.",
+    "SEND_ERROR": "Nastala chyba při odesílání zprávy. Zkuste to prosím později.",
+    "FORM_COMING_SOON": "Kontaktní formulář se připravuje",
+    "FORM_UNDER_CONSTRUCTION": "Omlouvám se, kontaktní formulář momentálně připravuji. Brzy bude k dispozici.",
+    "USE_EMAIL": "Zatím mě prosím kontaktujte přímo emailem na adrese výše."
   }
+
 }

@@ -1,0 +1,54 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="logo">
+      <i class="fas fa-code"></i>
+      Romiiis
+    </a>
+
+    <!-- Hamburger menu tlačítko - zobrazí se jen na mobilech -->
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Menu">
+      <i class="fas" [ngClass]="isMobileMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+    </button>
+
+    <ul class="nav-links" [class.nav-active]="isMobileMenuOpen">
+      <li><a href="/">{{ "NAVBAR.HOME_ITEM" | translate }}</a></li>
+      <li><a href="/about">{{ "NAVBAR.ABOUT_ITEM" | translate}}</a></li>
+      <li><a href="/technologies"> {{ "NAVBAR.TECH_ITEM" | translate }}</a></li>
+      <li><a href="/projects"> {{ "NAVBAR.PROJECTS_ITEM" | translate }}</a></li>
+      <li><a href="/contact"> {{ "NAVBAR.CONTACT_ITEM" | translate }}</a></li>
+    </ul>
+
+    <div class="actions" [class.actions-active]="isMobileMenuOpen">
+      <button class="icon-btn theme-toggle" title="{{label}}" (click)="toggleTheme()">
+        <i class="fas {{iconClass}}"></i>
+      </button>
+
+      <!-- Desktop dropdown menu - skryje se na mobilech -->
+      <div class="language-dropdown desktop-only">
+        <button type="button" class="language-toggle" (click)="toggleLanguageDropdown($event)" [attr.aria-label]="switchLangLabel">
+          <i class="fas fa-globe"></i>
+          <span>{{ translationService.getCurrentLang() === 'cs' ? 'CZ' : 'EN' }}</span>
+        </button>
+
+        <div class="language-dropdown-content" [class.show]="isLanguageDropdownOpen">
+          <button type="button" class="language-option"
+                  [class.active]="translationService.getCurrentLang() === 'cs'"
+                  (click)="selectLanguage('cs', $event)">
+            <span>Česky</span>
+          </button>
+          <button type="button" class="language-option"
+                  [class.active]="translationService.getCurrentLang() === 'en'"
+                  (click)="selectLanguage('en', $event)">
+            <span>English</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile přepínač - zobrazí se jen na mobilech -->
+      <button type="button" class="language-switch mobile-only" (click)="translationService.switchLang()" [attr.aria-label]="switchLangLabel">
+        <i class="fas fa-globe"></i>
+        <span>{{ translationService.getCurrentLang() === 'cs' ? 'CZ' : 'EN' }}</span>
+      </button>
+    </div>
+  </div>
+</nav>

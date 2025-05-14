@@ -1,68 +1,69 @@
-<div class="projects-page min-vh-100">
-  <div class="container py-5">
-    <div class="projects-section p-4">
-      <!-- Header Section -->
-      <h1 class="projects-title display-4 mb-3 text-center">{{ 'PROJECTS.TITLE' | translate }}</h1>
-      <p class="projects-description lead mb-5 text-center">
-        {{ 'PROJECTS.DESCRIPTION' | translate }}
-      </p>
+<div class="projects-container">
+  <div class="projects-header">
+    <div class="title-container">
+      <div class="title-decoration"></div>
+      <h1 class="title">{{ "PROJECTS.TITLE" |translate }}</h1>
+    </div>
+  </div>
 
-      <!-- Projects Grid -->
-      <div class="row g-4">
-        <div
-          class="col-12 col-md-6 col-lg-4"
-          *ngFor="let project of projects"
-          (click)="openModal(project)"
-        >
-          <div class="project-card h-100">
-            <div class="card-glow"></div>
-            <div class="card-content">
-              <h2 class="project-name h3">{{ project.name }}</h2>
-              <div class="card-divider"></div>
-              <p class="project-short-description">{{ project.shortDescription }}</p>
-            </div>
-            <div class="card-overlay">
-              <span class="view-more">Click to view details →</span>
-            </div>
-          </div>
+  <!-- Desktop & Tablet View -->
+  <div class="projects-showcase">
+    <div class="project-timeline">
+      <div *ngFor="let project of projects; let i = index"
+           class="timeline-project"
+           [class.active]="selectedProjectIndex === i"
+           (click)="selectProject(i)">
+        <div class="timeline-dot"></div>
+        <div class="timeline-connector" *ngIf="i < projects.length - 1"></div>
+        <div class="timeline-label">{{ project.name }}</div>
+      </div>
+    </div>
+
+    <div class="project-details" *ngIf="selectedProjectIndex !== null">
+      <div class="project-details-inner" [class.animate]="detailsAnimating">
+        <h2 class="project-title">{{ projects[selectedProjectIndex].name }}</h2>
+        <div class="project-tag">{{ projects[selectedProjectIndex].shortDescription }}</div>
+
+        <div class="project-description">
+          <p>{{ projects[selectedProjectIndex].longDescription }}</p>
+        </div>
+
+        <div class="project-actions">
+          <a *ngIf="projects[selectedProjectIndex].projectUrl"
+             [href]="projects[selectedProjectIndex].projectUrl"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="project-link">
+            <i class="fab fa-github"></i>
+            {{ "PROJECTS.VIEW_CODE" | translate }}
+          </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal" tabindex="-1" [class.show]="selectedProject" [style.display]="selectedProject ? 'block' : 'none'">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content custom-modal">
-        <div class="modal-header">
-          <h2 class="modal-title">{{ selectedProject?.name }}</h2>
-          <button type="button" class="btn-close btn-close-white" (click)="closeModal()"></button>
+  <!-- Mobile View -->
+  <div class="projects-accordion">
+    <div *ngFor="let project of projects; let i = index" class="accordion-item">
+      <div class="accordion-header" (click)="toggleAccordion(i)">
+        <div class="accordion-title">{{ project.name }}</div>
+        <div class="accordion-icon">
+          <i class="fas" [ngClass]="expandedProjectIndex === i ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
         </div>
+      </div>
 
-        <div class="modal-body">
-          <img
-            *ngIf="selectedProject?.imageUrl"
-            class="modal-image img-fluid rounded mb-3"
-            [src]="selectedProject?.imageUrl"
-            [alt]="selectedProject?.name"
-            (error)="setDefaultImage($event)"
-          />
-          <p class="modal-description">{{ selectedProject?.longDescription }}</p>
-        </div>
+      <div class="accordion-content" [class.expanded]="expandedProjectIndex === i">
+        <div class="accordion-tag">{{ project.shortDescription }}</div>
+        <p class="accordion-description">{{ project.longDescription }}</p>
 
-        <div class="modal-footer">
-          <a *ngIf="selectedProject?.projectUrl; else noUrl"
-             class="btn btn-primary"
-             [href]="selectedProject?.projectUrl"
-             target="_blank"
-             rel="noopener noreferrer"
-          >
-            View Project
-          </a>
-          <ng-template #noUrl>
-            <span class="no-url">URL not available</span>
-          </ng-template>
-        </div>
+        <a *ngIf="project.projectUrl"
+           [href]="project.projectUrl"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="accordion-link">
+          <i class="fab fa-github"></i>
+          {{ "PROJECTS.VIEW_CODE" | translate }}
+        </a>
       </div>
     </div>
   </div>

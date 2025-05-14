@@ -36,5 +36,17 @@
     "name": "Quiz Master",
     "shortDescription": "A web application for creating quizzes for job fairs and recruitments (Made at work)",
     "longDescription": "As part of this application, I worked on creating recruitment tests, generating URL links, setting the time during which candidates can complete the test, handling internet outages, and more. For evaluating open-ended questions, I researched AI models that could run on our machines and focused on creating effective prompts."
+  },
+  {
+    "name": "EqualLib",
+    "shortDescription": "Library for deep comparison of objects.",
+    "longDescription": "This library was created as part of a Bachelor's thesis. It is written in Java and is used for deep comparison of objects using reflection. The library also offers the ability to modify the comparison algorithm used for comparing objects. The library is designed to be as universal as possible and can be used in various projects.",
+    "projectUrl": "https://github.com/Romiiis/EqualLib"
+  },
+  {
+    "name": "EqualLib - Playground",
+    "shortDescription": "Testing application for EqualLib.",
+    "longDescription": "This application serves as a testing application for EqualLib. It contains various examples of library usage and shows how to use it in different situations. The application is written in Java and uses JavaFX for the GUI. With it, you can create and modify objects on which you can test the EqualLib library.",
+    "projectUrl": "https://github.com/Romiiis/EqualLib-Playground"
   }
 ]

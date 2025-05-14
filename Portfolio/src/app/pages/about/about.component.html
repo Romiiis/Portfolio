@@ -1,46 +1,65 @@
-<div class="about-page">
-  <div class="about-section container">
-    <!-- Title - Large on desktop, smaller on mobile -->
-    <h1 class="about-title fs-1 fs-sm-2">{{ 'ABOUT.TITLE' | translate }}</h1>
+<div class="about-container">
+  <div class="about-header">
+    <h1 class="title">{{ "ABOUT.TITLE" | translate }}</h1>
+    <div class="subtitle-bar"></div>
+  </div>
 
-    <!-- Description - Medium on desktop, smaller on mobile -->
-    <p class="about-description fs-4 fs-sm-5">
-        {{ 'ABOUT.DESCRIPTION' | translate }}
-    </p>
-
-    <!-- Details Section -->
-    <div class="about-details row">
-      <!-- Biography Section -->
-      <div class="col-12 mb-4">
-        <h2 class="about-subtitle fs-2 fs-sm-3">{{ 'ABOUT.BIOGRAPHY.TITLE' | translate }}</h2>
-        <p class="fs-5 fs-sm-6">
-          {{ 'ABOUT.BIOGRAPHY.DESCRIPTION' | translate }}
-        </p>
+  <div class="about-content">
+    <div class="profile-section">
+      <div class="profile-image">
+        <i class="fas fa-user"></i>
       </div>
-
-      <!-- Hobbies Section -->
-      <div class="col-12 mb-4">
-        <h2 class="about-subtitle fs-2 fs-sm-3">{{ 'ABOUT.HOBBIES.TITLE' | translate }}</h2>
-        <p class="fs-5 fs-sm-6">
-            {{ 'ABOUT.HOBBIES.DESCRIPTION' | translate }}
-        </p>
-      </div>
-
-      <!-- Pets Section -->
-      <div class="col-12 mb-4">
-        <h2 class="about-subtitle fs-2 fs-sm-3">{{ 'ABOUT.PETS.TITLE' | translate }}</h2>
-        <p class="fs-5 fs-sm-6">
-          {{ 'ABOUT.PETS.DESCRIPTION' | translate }}
-        </p>
-      </div>
-
-      <!-- Experience Section -->
-      <div class="col-12 mb-4">
-        <h2 class="about-subtitle fs-2 fs-sm-3">{{ 'ABOUT.WORK.TITLE' | translate }}</h2>
-        <p class="fs-5 fs-sm-6">
-          {{ 'ABOUT.WORK.DESCRIPTION' | translate }}
-        </p>
+      <div class="profile-info">
+        <h2>Roman Pejs</h2>
+        <p class="job-title"> {{ "ABOUT.JOB_TITLE" | translate }}</p>
       </div>
     </div>
+
+    <div class="bio-section">
+      <p>
+        {{ "ABOUT.BIO1" | translate }}
+      </p>
+
+      <p>
+        {{ "ABOUT.BIO2" | translate }}
+      </p>
+    </div>
+
+    <div class="experience-section">
+      <h3>{{ "ABOUT.EXP_TITLE" | translate }}</h3>
+      <div class="experience-item">
+        <div class="experience-header">
+          <h4>Trainee</h4>
+          <span class="company">Eurosoftware s.r.o.</span>
+          <span class="period">2024 - {{ "ABOUT.NOW" | translate }}</span>
+        </div>
+        <p>{{ "ABOUT.ES_DESCRIPTION" | translate }}</p>
+      </div>
+    </div>
+
+    <div class="education-section">
+      <h3>{{ "ABOUT.EDU_TITLE" | translate }}</h3>
+      <div class="education-item">
+        <h4>{{ "ABOUT.BC_TITLE" | translate }}</h4>
+        <span class="institution">{{ "ABOUT.BC_SCHOOL" | translate }}</span>
+        <span class="period">2022 - 2025 ({{ "ABOUT.NOW" | translate }})</span>
+      </div>
+
+      <div class="education-item">
+        <h4> {{ "ABOUT.SPSCV_TITLE" | translate }}</h4>
+        <span class="institution">{{ "ABOUT.SPSCV_SCHOOL" | translate }}</span>
+        <span class="period">2018-2022</span>
+      </div>
+    </div>
+
+    <div class="personal-section">
+      <h3> {{ "ABOUT.PERSONAL_TITLE" | translate }}</h3>
+      <p> {{ "ABOUT.PERSONAL_DESCRIPTION" | translate }}</p>
+    </div>
+  </div>
+
+  <div class="contact-prompt">
+    <p>{{ "ABOUT.CONTACT_PROMPT" | translate }}</p>
+    <a routerLink="/contact" class="btn"> {{ "ABOUT.CONTACT_BTN" | translate }}</a>
   </div>
 </div>

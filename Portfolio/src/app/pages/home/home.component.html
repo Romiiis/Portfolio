@@ -1,22 +1,12 @@
-<div class="home-page d-flex justify-content-center align-items-center">
-  <div class="hero-section d-flex flex-lg-row flex-column align-items-center justify-content-between text-light rounded p-4 shadow">
-    <div class="d-flex justify-content-center align-items-center mt-6 mb-lg-0" style="min-height: 200px;">
-      <fa-icon [icon]="faBug" class="hero-icon"></fa-icon>
-    </div>
-    <div class="hero-right flex-lg-2 text-center text-lg-start">
-      <!-- Title: larger on desktop, smaller on mobile -->
-      <h1 class="hero-title fs-1 fs-sm-2">
-        <span class="highlight">Romiis</span>
-      </h1>
-      <!-- Description: medium on desktop, smaller on mobile -->
-      <p class="hero-description mb-4 fs-5 fs-sm-6">
-        {{ 'HOME.DESCRIPTION' | translate }}
-      </p>
-      <div class="hero-buttons d-flex flex-column flex-lg-row gap-3">
-        <!-- Buttons: consistent size but slightly smaller on mobile -->
-        <a routerLink="/projects" class="btn primary-btn mb-2 mb-lg-0 fs-5 fs-sm-6">{{ "HOME.PROJECTS_BUTTON" | translate }}</a>
-        <a routerLink="/contact" class="btn secondary-btn fs-5 fs-sm-6">{{ "HOME.CONTACT_BUTTON" | translate }}</a>
-      </div>
-    </div>
+<div class="home-container">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+
+  <h1 class="title"><i class="fas fa-terminal"></i> Romiiis</h1>
+  <p class="subtitle">{{ "HOME.SUBTITLE" | translate }}</p>
+  <div class="buttons">
+    <a routerLink="/projects" class="btn"> {{ "HOME.PROJECTS_BTN" | translate }}</a>
+    <a routerLink="/contact" class="btn secondary"> {{ "HOME.CONTACT_BTN" | translate }}</a>
   </div>
 </div>
