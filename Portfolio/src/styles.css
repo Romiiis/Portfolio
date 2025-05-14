@@ -4,18 +4,12 @@ body, html {
   margin: 0;
   font-family: 'JetBrains Mono', monospace;
   transition: background-color 0.3s, color 0.3s;
-  height: 100%;
   --font-main: 'JetBrains Mono', monospace;
   padding: 0;
   display: flex;
   flex-direction: column;
 }
 
-body {
-  font-family: var(--font-main);
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
 
 .navbar, .footer, .card, .button, .container {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -25,16 +19,17 @@ body {
 .app-component {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Zajistí minimální výšku celé aplikace na výšku viewportu */
+  min-height: 100vh;
 }
 
 .main-content {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Toto je klíčové pro vertikální centrování */
+  justify-content: center;
   flex: 1;
-  min-height: 0; /* Důležité pro správné fungování flexboxu */
+  min-height: 0;
 }
+
 
 :root {
   color-scheme: light;

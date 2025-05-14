@@ -1,12 +1,10 @@
 
-/* Nastavení pro celou stránku */
 .home-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertikální vycentrování */
-  align-items: center; /* Horizontální vycentrování */
-  height: calc(100vh - 200px);
-  padding: 0; /* Horizontální padding, ne vertikální */
+  justify-content: center;
+  align-items: center;
+  padding: 0;
   margin: 0;
   position: absolute;
   top: 60px;
@@ -14,35 +12,42 @@
   left: 0;
   right: 0;
   text-align: center;
-  overflow: hidden; /* Důležité pro animace přesahující container */
-  background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.03) 0%, transparent 70%);
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.05) 0%, transparent 70%);
 }
 
+/* Vylepšený první kruh - vlevo nahoře */
 .home-container::before {
   content: '';
   position: absolute;
-  width: 40vw;
-  height: 40vw;
-  background: linear-gradient(45deg, rgba(var(--accent-rgb), 0.1), transparent);
+  width: 50vw; /* Zvětšení velikosti */
+  height: 50vw; /* Zvětšení velikosti */
+  background: linear-gradient(45deg, rgba(var(--accent-rgb), 0.2), transparent); /* Zvýšení průhlednosti */
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   top: -20vw;
   left: -20vw;
   z-index: -1;
   animation: float 15s ease-in-out infinite alternate;
+  box-shadow: 0 0 50px rgba(var(--accent-rgb), 0.15); /* Přidání stínu pro lepší viditelnost */
+  border: 1px solid rgba(var(--accent-rgb), 0.1); /* Přidání jemného okraje */
 }
 
+/* Vylepšený druhý kruh - vpravo dole */
 .home-container::after {
   content: '';
   position: absolute;
-  width: 30vw;
-  height: 30vw;
-  background: linear-gradient(45deg, transparent, rgba(var(--accent-rgb), 0.05));
+  width: 40vw; /* Zvětšení velikosti */
+  height: 40vw; /* Zvětšení velikosti */
+  background: linear-gradient(45deg, transparent, rgba(var(--accent-rgb), 0.15)); /* Zvýšení průhlednosti */
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   bottom: -15vw;
   right: -15vw;
   z-index: -1;
   animation: float 20s ease-in-out infinite alternate-reverse;
+  box-shadow: 0 0 50px rgba(var(--accent-rgb), 0.15); /* Přidání stínu pro lepší viditelnost */
+  border: 1px solid rgba(var(--accent-rgb), 0.1); /* Přidání jemného okraje */
 }
+
 
 .title {
   font-size: 3.5rem;

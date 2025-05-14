@@ -10,6 +10,18 @@ export const routes: Routes = [
     "loadComponent": () => import("./pages/about/about.component").then(m => m.AboutComponent),
   },
   {
+    "path": "technologies",
+    "loadComponent": () => import("./pages/technologies/technologies.component").then(m => m.TechnologiesComponent),
+  },
+  {
+    "path": "projects",
+    "loadComponent": () => import("./pages/projects/projects.component").then(m => m.ProjectsComponent),
+  },
+  {
+    "path": "contact",
+    "loadComponent": () => import("./pages/contact/contact.component").then(m => m.ContactComponent),
+  },
+  {
     "path": "**",
     "redirectTo": "home",
     "pathMatch": "full",

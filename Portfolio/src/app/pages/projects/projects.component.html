@@ -1,0 +1,70 @@
+<div class="projects-container">
+  <div class="projects-header">
+    <div class="title-container">
+      <div class="title-decoration"></div>
+      <h1 class="title">Moje projekty</h1>
+    </div>
+  </div>
+
+  <!-- Desktop & Tablet View -->
+  <div class="projects-showcase">
+    <div class="project-timeline">
+      <div *ngFor="let project of projects; let i = index"
+           class="timeline-project"
+           [class.active]="selectedProjectIndex === i"
+           (click)="selectProject(i)">
+        <div class="timeline-dot"></div>
+        <div class="timeline-connector" *ngIf="i < projects.length - 1"></div>
+        <div class="timeline-label">{{ project.name }}</div>
+      </div>
+    </div>
+
+    <div class="project-details" *ngIf="selectedProjectIndex !== null">
+      <div class="project-details-inner" [class.animate]="detailsAnimating">
+        <h2 class="project-title">{{ projects[selectedProjectIndex].name }}</h2>
+        <div class="project-tag">{{ projects[selectedProjectIndex].shortDescription }}</div>
+
+        <div class="project-description">
+          <p>{{ projects[selectedProjectIndex].longDescription }}</p>
+        </div>
+
+        <div class="project-actions">
+          <a *ngIf="projects[selectedProjectIndex].projectUrl"
+             [href]="projects[selectedProjectIndex].projectUrl"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="project-link">
+            <i class="fab fa-github"></i>
+            Prohlédnout kód
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile View -->
+  <div class="projects-accordion">
+    <div *ngFor="let project of projects; let i = index" class="accordion-item">
+      <div class="accordion-header" (click)="toggleAccordion(i)">
+        <div class="accordion-title">{{ project.name }}</div>
+        <div class="accordion-icon">
+          <i class="fas" [ngClass]="expandedProjectIndex === i ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+        </div>
+      </div>
+
+      <div class="accordion-content" [class.expanded]="expandedProjectIndex === i">
+        <div class="accordion-tag">{{ project.shortDescription }}</div>
+        <p class="accordion-description">{{ project.longDescription }}</p>
+
+        <a *ngIf="project.projectUrl"
+           [href]="project.projectUrl"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="accordion-link">
+          <i class="fab fa-github"></i>
+          Prohlédnout kód
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

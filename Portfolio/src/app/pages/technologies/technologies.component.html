@@ -1,0 +1,48 @@
+<div class="technologies-container">
+  <div class="header-wrapper">
+    <div class="technologies-header">
+      <h1 class="title">{{'Technologie' }}</h1>
+      <p class="header-description">
+        Zde je seznam technologií, které používám při vývoji aplikací.
+      </p>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <button
+      *ngFor="let category of getUniqueCategories()"
+      (click)="setActiveCategory(category)"
+      [class.active]="activeCategory === category || activeCategory === 'all'"
+      class="filter-btn">
+      {{ getCategoryName(category) }}
+    </button>
+    <button
+      (click)="setActiveCategory('all')"
+      [class.active]="activeCategory === 'all'"
+      class="filter-btn">
+      {{ 'All' }}
+    </button>
+  </div>
+
+  <div class="tech-cards-container">
+    <ng-container *ngFor="let category of technologyCategories">
+      <ng-container *ngFor="let tech of category.technologies">
+        <a *ngIf="shouldShowTech(category.category)"
+           [href]="tech.url"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="tech-card">
+          <div class="tech-icon-wrapper">
+            <i [class]="getIconClasses(tech.icon)"></i>
+          </div>
+          <div class="tech-details">
+            <h3 class="tech-name">{{ tech.name }}</h3>
+            <div class="category-badge">
+              <span class="category-name">{{ getCategoryName(category.category) }}</span>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
