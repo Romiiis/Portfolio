@@ -5,17 +5,21 @@
       Romiiis
     </a>
 
+    <!-- Hamburger menu tlačítko - zobrazí se jen na mobilech -->
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Menu">
+      <i class="fas" [ngClass]="isMobileMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+    </button>
 
-    <ul class="nav-links">
+    <ul class="nav-links" [class.nav-active]="isMobileMenuOpen">
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/services">Services</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul>
 
-    <div class="actions">
-      <button class="icon-btn theme-toggle" title="Toggle theme" (click)="toggleTheme()">
-        <i class="fas fa-sun"></i>
+    <div class="actions" [class.actions-active]="isMobileMenuOpen">
+      <button class="icon-btn theme-toggle" title="{{label}}" (click)="toggleTheme()">
+        <i class="fas {{iconClass}}"></i>
       </button>
 
       <button class="icon-btn language-toggle" title="Change language">

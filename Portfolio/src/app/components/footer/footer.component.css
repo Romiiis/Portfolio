@@ -14,19 +14,6 @@
     gap: 1rem;
   }
 
-  .footer-name {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--accent-color);
-
-    i {
-      font-size: 1.2rem;
-    }
-  }
-
   .footer-icons {
     display: flex;
     gap: 1.2rem;
@@ -47,7 +34,7 @@
   .footer-copy {
     font-size: 0.9rem;
     color: var(--text-muted);
-    margin-top: 0rem;
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
   }
 }

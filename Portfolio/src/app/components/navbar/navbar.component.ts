@@ -1,18 +1,27 @@
 // navbar.component.ts
 import {Component} from '@angular/core';
 import {ThemeService} from '../../services/theme.service';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  imports: [],
+  imports: [
+    NgClass
+  ],
+  standalone: true,
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
 
+  isMobileMenuOpen = false;
+
   constructor(private themeService: ThemeService) {
   }
 
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 
   toggleTheme() {
     this.themeService.toggleTheme();
