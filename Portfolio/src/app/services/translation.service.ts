@@ -1,45 +1,96 @@
-import {Injectable} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+// translation.service.ts
+import { Injectable, EventEmitter } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-
-
-/**
- * TranslationService is responsible for managing translations in the application.
- * It uses the TranslateService from @ngx-translate/core to handle language switching and translation.
- */
 export class TranslationService {
+  private languageChange = new EventEmitter<string>();
+  private LANG_STORAGE_KEY = 'app_preferred_language';
 
-  /**
-   * Constructor for the TranslationService.
-   * It initializes the TranslateService and sets the default language.
-   * @param translateS The TranslateService instance to manage translations.
-   */
   constructor(private translateS: TranslateService) {
+    // Načtení uloženého jazyka z localStorage nebo použití výchozího
+    const savedLang = this.getSavedLanguage();
+
+    // Nastavení defaultního jazyka a použití uloženého/výchozího
+    this.translateS.setDefaultLang('en');
+    this.translateS.use(savedLang);
+
+    // Emitování události změny jazyka při inicializaci
+    this.languageChange.emit(savedLang);
+
+    console.log('TranslationService initialized with language:', savedLang);
   }
 
   /**
-   * Gets the current language of the application.
+   * Získá uložený jazyk z localStorage nebo vrátí výchozí jazyk
+   */
+  private getSavedLanguage(): string {
+    const savedLang = localStorage.getItem(this.LANG_STORAGE_KEY);
+
+    // Zkontrolujeme, zda je uložený jazyk platný (en/cs)
+    if (savedLang && (savedLang === 'en' || savedLang === 'cs')) {
+      console.log('Loaded language from localStorage:', savedLang);
+      return savedLang;
+    }
+
+    // Jinak zkusíme detekovat jazyk prohlížeče
+    const browserLang = this.translateS.getBrowserLang();
+    const defaultLang = browserLang && browserLang.match(/en|cs/) ? browserLang : 'en';
+    console.log('Using browser/default language:', defaultLang);
+    return defaultLang;
+  }
+
+  /**
+   * Nastaví určitý jazyk
+   */
+  setLanguage(lang: string): void {
+    if (lang !== this.getCurrentLang()) {
+      console.log('Setting language to:', lang);
+      this.translateS.use(lang);
+      this.saveLanguage(lang);
+      this.languageChange.emit(lang);
+    }
+  }
+
+  /**
+   * Uloží vybraný jazyk do localStorage
+   */
+  private saveLanguage(lang: string): void {
+    localStorage.setItem(this.LANG_STORAGE_KEY, lang);
+    console.log('Saved language to localStorage:', lang);
+  }
+
+  /**
+   * Vrátí aktuální jazyk
    */
   getCurrentLang(): string {
-    return this.translateS.currentLang;
+    return this.translateS.currentLang || this.translateS.defaultLang || 'en';
   }
 
   /**
-   * Switches the language of the application between English and Czech.
+   * Přepne mezi jazyky a uloží nastavení
    */
   switchLang() {
-    const currentLang = this.translateS.currentLang;
+    const currentLang = this.getCurrentLang();
     const newLang = currentLang === 'en' ? 'cs' : 'en';
+
+    console.log('Switching language from', currentLang, 'to', newLang);
+
+    // Nastavení nového jazyka
     this.translateS.use(newLang);
+
+    // Uložení do localStorage
+    this.saveLanguage(newLang);
+
+    // Emituj událost změny jazyka
+    this.languageChange.emit(newLang);
   }
 
   /**
-   * Translates a given key using the TranslateService.
-   * @param key The translation key to be translated.
-   * @returns The translated string or the key itself if translation fails.
+   * Přeloží klíč do aktuálního jazyka
    */
   translate(key: string): string {
     let result = '';
@@ -47,5 +98,12 @@ export class TranslationService {
       result = res;
     });
     return result || key;
+  }
+
+  /**
+   * Naslouchá změnám jazyka
+   */
+  onLanguageChange(): Observable<string> {
+    return this.languageChange.asObservable();
   }
 }

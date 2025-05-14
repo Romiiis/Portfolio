@@ -22,7 +22,6 @@ interface FormStatus {
   templateUrl: './contact.component.html',
   standalone: true,
   imports: [
-    NgIf,
     FormsModule,
     TranslateModule
   ],
@@ -56,8 +55,8 @@ export class ContactComponent {
 
   isEmailValid(): boolean {
     if (!this.formData.email) return false;
+    // Přísnější validace emailu s kontrolou tečky v doméně
     const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    console.log(`Email: ${this.formData.email}, Valid: ${pattern.test(this.formData.email)}`);
     return pattern.test(this.formData.email);
   }
 
@@ -110,22 +109,41 @@ export class ContactComponent {
     return '';
   }
 
-  // Pomocné metody pro zobrazení chyb
-  shouldShowError(fieldName: string): boolean {
+  // Opravené pomocné metody pro zobrazení chyb
+  shouldShowNameError(): boolean {
     if (!this.contactForm) return false;
 
-    const control = this.contactForm.controls[fieldName];
-    return !!control && (this.submitted || (control.invalid && (control.dirty || control.touched)));
+    const control = this.contactForm.controls['name'];
+    return !!control && (this.submitted || (control.dirty || control.touched)) && !this.isNameValid();
+  }
+
+  shouldShowEmailError(): boolean {
+    if (!this.contactForm) return false;
+
+    const control = this.contactForm.controls['email'];
+    // Důležité: kontrolujeme vlastní validátor isEmailValid()
+    return !!control && (this.submitted || (control.dirty || control.touched)) && !this.isEmailValid();
+  }
+
+  shouldShowSubjectError(): boolean {
+    if (!this.contactForm) return false;
+
+    const control = this.contactForm.controls['subject'];
+    return !!control && (this.submitted || (control.dirty || control.touched)) && !this.isSubjectValid();
+  }
+
+  shouldShowMessageError(): boolean {
+    if (!this.contactForm) return false;
+
+    const control = this.contactForm.controls['message'];
+    return !!control && (this.submitted || (control.dirty || control.touched)) && !this.isMessageValid();
   }
 
   // Validace formuláře před odesláním
   validateForm(): boolean {
     // Manuální validace, která překoná výchozí validaci Angular Forms
-    if (!this.isNameValid() || !this.isEmailValid() ||
-      !this.isSubjectValid() || !this.isMessageValid()) {
-      return false;
-    }
-    return true;
+    return this.isNameValid() && this.isEmailValid() &&
+      this.isSubjectValid() && this.isMessageValid();
   }
 
   // Odeslání formuláře

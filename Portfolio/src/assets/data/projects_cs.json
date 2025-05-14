@@ -1,0 +1,53 @@
+[
+  {
+    "name": "ChessMaster",
+    "shortDescription": "Šachy napsané v Java Swing",
+    "longDescription": "Tyto Šachy byly napsané v rámci semestrální práce předmětu KIV/UPG. Šachy jsou napsané čistě ve swingu, používají knihovnu pro statistiky a pro protihráče je použit StockFish (https://stockfishchess.org/) engine. Veškerá grafika je vytvořena v kódu. Tato práce skončila na druhém místě z celého ročníku a také to byl můj první větší projekt, který jsem vyvíjel. ",
+    "projectUrl": "https://github.com/Romiiis/ChessMaster"
+  },
+  {
+    "name": "Digitální Steganografie",
+    "shortDescription": "Ukryjte tajné zprávy do digitálních obrázků",
+    "longDescription": "Tento projekt byl napsán v rámci semestrální práce předmětu KIV/PC. Program je schopný ukrýt data do pixelů, které reprezentují obrázek (PNG, BMP) a následně jej dokáže extrahovat zpět. Program také kontroluje, zda se obsah do obrázku vejde a také zjistit, pokud je obsah poškozen. Na této semestrální práci garant předmětu testoval validátor, který následně kontroloval práce ostatních studentů.",
+    "projectUrl": "https://github.com/Romiiis/Digital-steganography"
+  },
+  {
+    "name": "Crazy Tags",
+    "shortDescription": "Jednoduchý Minecraft plugin.",
+    "longDescription": "Tento plugin byl vyvinut pro zábavu a pro naučení se Spigot knihovny pro vývoj Minecraft pluginů. Využívá Vault pro ekonomiku a SQL (MySQL a SQLite). Plugin umožňuje definovat různé tagy, jejich ceny a rarity v konfiguraci, které hráči mohou ve hře získávat. Po výběru tagu se tento tag zobrazí před jménem hráče v chatu.",
+    "projectUrl": "https://github.com/Romiiis/CrazyTags"
+  },
+  {
+    "name": "Pseudo FAT File System",
+    "shortDescription": "Pseudo FAT souborový systém vyvinutý v C++.",
+    "longDescription": "Tento projekt byl vytvořen v rámci předmětu KIV/ZOS. Program je napsán v C++. Po spuštění je možné naformátovat libovolně veliký souborový systém a poté lze v tomto systému provádět základní příkazy (podobné linuxovým příkazům). Po ukončení programu lze otevřít existující souborový systém a pokračovat v práci."
+  },
+  {
+    "name": "Super Mancala",
+    "shortDescription": "Multiplayerová hra Mancala (Java&C++).",
+    "longDescription": "Tento projekt byl vytvořen jako semestrální práce v rámci předmětu KIV/UPS. Skládá se ze dvou aplikací (Klient a Server). Klient je napsán v Java Swing a poskytuje jednoduché a intuitivní GUI pro připojení k serveru, přihlášení pomocí přezdívky a připojení do fronty, kde hráč čeká na hru. Jakmile je nalezen protihráč, oba hráči jsou připojeni do hry a mohou začít hrát. Pokud během hry nastanou problémy s připojením, hráč má 30 sekund na opětovné připojení. Server zajišťuje veškerou herní logiku."
+  },
+  {
+    "name": "Rezervační systém kanceláří",
+    "shortDescription": "Systém pro rezervaci kancelářských prostor. (Vytvořeno v práci)",
+    "longDescription": "Tento projekt je interní projekt v práci, vyvinutý ve frameworku Swing, který umožňuje navrhovat místnosti v budově, a uživatelé si následně mohou vybrat a rezervovat požadované stoly na konkrétní data. Veškeré informace se okamžitě přidají do uživatelova kalendáře (Office 365). Celá aplikace je navržena jako MicroService a využívá OpenAPI."
+  },
+  {
+    "name": "Quiz Master",
+    "shortDescription": "Webová aplikace pro tvorbu kvízů na veletrzích práce a při náboru. (Vytvořeno v práci)",
+    "longDescription": "V rámci této aplikace jsem řešil vytváření náborových testů, generování URL odkazů, nastavení času, během kterého mohou kandidáti test vyplnit, řešení výpadků internetu a další. Pro vyhodnocování otevřených otázek jsem hledal AI modely, které by mohly běžet na našich strojích, a zaměřoval jsem se na vytváření efektivních promptů."
+  },
+  {
+    "name": "EqualLib",
+    "shortDescription": "Knihovna pro hluboké porovnávání objektů.",
+    "longDescription": "Tato knihovna vznikla v rámcí Bakalářské práce. Je napsaná v Javě a slouží k hlubokému porovnávání objektů pomocí reflexe. Knihovna nabízí i modifikovat porovnávající algoritmus, který je použit pro porovnávání objektů. Knihovna je napsaná tak, aby byla co nejvíce univerzální a mohla být použita v různých projektech.",
+    "projectUrl": "https://github.com/Romiiis/EqualLib"
+  },
+  {
+    "name": "EqualLib - Playground",
+    "shortDescription": "Testovací aplikace pro EqualLib.",
+    "longDescription": "Tato aplikace slouží jako testovací aplikace pro EqualLib. Obsahuje různé příklady použití knihovny a ukazuje, jak ji používat v různých situacích. Aplikace je napsaná v Javě a používá JavaFX pro GUI. Pomocí ní je možné vytvářet a modifikovat objekty na kterých lze otestovat knihovnu EqualLib. ",
+    "projectUrl": "https://github.com/Romiiis/EqualLib-Playground"
+  }
+
+]

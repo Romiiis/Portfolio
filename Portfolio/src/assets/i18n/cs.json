@@ -19,6 +19,7 @@
     "CONTACT_BTN": "Kontakt"
   },
   "ABOUT": {
+    "TITLE": "O mně",
     "JOB_TITLE": "Softwarový vývojář",
     "BIO1": "Jsem student informatiky s vášní pro programování a vytváření elegantních řešení. Ve svých projektech se zaměřuji na čistý kód a efektivní architekturu, protože věřím, že kvalitní software by měl být nejen funkční, ale i srozumitelný a udržitelný.",
     "BIO2": "Neustále se učím nové technologie a koncepty, které mi pomáhají zdokonalovat mé programátorské dovednosti. Mou filozofií je, že dobrý kód není jen o správné funkcionalitě, ale také o čitelnosti a jednoduché rozšiřitelnosti. Preferuji elegantní a jasná řešení před zbytečně komplexními - méně je někdy více.",
@@ -46,6 +47,10 @@
     "TOOLS_SHORT": "Nástroj",
     "ALL": "Všechny technologie"
   },
+  "PROJECTS": {
+    "TITLE": "Moje projekty",
+    "VIEW_CODE": "Prohlédnout kód"
+  },
   "CONTACT": {
     "TITLE": "Kontakt",
     "DESCRIPTION": "Máte dotaz nebo zajímavý projekt? Neváhejte mě kontaktovat.",
@@ -69,9 +74,10 @@
     "EMAIL_WRONG": "E-mail je povinný",
     "EMAIL_INVALID": "E-mail není platný",
     "SEND_SUCCESS": "Zpráva byla úspěšně odeslána. Ozvu se co nejdříve.",
-    "SEND_ERROR": "Nastala chyba při odesílání zprávy. Zkuste to prosím později."
-
-
+    "SEND_ERROR": "Nastala chyba při odesílání zprávy. Zkuste to prosím později.",
+    "FORM_COMING_SOON": "Kontaktní formulář se připravuje",
+    "FORM_UNDER_CONSTRUCTION": "Omlouvám se, kontaktní formulář momentálně připravuji. Brzy bude k dispozici.",
+    "USE_EMAIL": "Zatím mě prosím kontaktujte přímo emailem na adrese výše."
   }
 
 }

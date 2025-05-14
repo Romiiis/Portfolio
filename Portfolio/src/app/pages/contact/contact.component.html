@@ -45,7 +45,7 @@
         </div>
         <div class="info-content">
           <h3>{{ "CONTACT.LINKEDIN_LABEL" | translate }}</h3>
-          <p><a href="https://linkedin.com/in/roman-pejs" target="_blank" rel="noopener noreferrer">linkedin.com/in/roman-pejs</a></p>
+          <p><a href="https://linkedin.com/in/romiiis" target="_blank" rel="noopener noreferrer">linkedin.com/in/romiiis</a></p>
         </div>
       </div>
     </div>
@@ -53,82 +53,14 @@
     <div class="contact-form-container">
       <h2>{{ "CONTACT.WRITE_ME" | translate }}</h2>
 
-      <form class="contact-form" (ngSubmit)="submitForm()" #contactForm="ngForm" novalidate>
-        <div class="form-group">
-          <label for="name">{{ "CONTACT.NAME_LABEL" | translate }}</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            [(ngModel)]="formData.name"
-            required
-            minlength="2"
-            #name="ngModel"
-            [class.invalid]="shouldShowError('name') && (!isNameValid() || name.invalid)">
-          <span class="validation-error" *ngIf="shouldShowError('name') && (!isNameValid() || name.invalid)">
-            {{ getNameErrorMessage() }}
-          </span>
+      <!-- Nahrazení formuláře informativní zprávou -->
+      <div class="under-construction">
+        <div class="under-construction-icon">
+          <i class="fas fa-tools"></i>
         </div>
-
-        <div class="form-group">
-          <label for="email">{{ "CONTACT.EMAIL_LABEL" | translate }}</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            [(ngModel)]="formData.email"
-            required
-            email
-            #email="ngModel"
-            [class.invalid]="shouldShowError('email') && (!isEmailValid() || email.invalid)">
-          <span class="validation-error" *ngIf="shouldShowError('email') && (!isEmailValid() || email.invalid)">
-            {{ getEmailErrorMessage() }}
-          </span>
-        </div>
-
-        <div class="form-group">
-          <label for="subject">{{ "CONTACT.SUBJ_LABEL" | translate }}</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            [(ngModel)]="formData.subject"
-            required
-            minlength="2"
-            #subject="ngModel"
-            [class.invalid]="shouldShowError('subject') && (!isSubjectValid() || subject.invalid)">
-          <span class="validation-error" *ngIf="shouldShowError('subject') && (!isSubjectValid() || subject.invalid)">
-            {{ getSubjectErrorMessage() }}
-          </span>
-        </div>
-
-        <div class="form-group">
-          <label for="message">{{ "CONTACT.MESSAGE_LABEL" | translate }}</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            [(ngModel)]="formData.message"
-            required
-            minlength="10"
-            #message="ngModel"
-            [class.invalid]="shouldShowError('message') && (!isMessageValid() || message.invalid)"></textarea>
-          <span class="validation-error" *ngIf="shouldShowError('message') && (!isMessageValid() || message.invalid)">
-            {{ getMessageErrorMessage() }}
-          </span>
-        </div>
-
-        <button type="submit" class="submit-btn" [disabled]="submitting">
-          <span *ngIf="!submitting">{{ "CONTACT.SEND_BTN" | translate }}</span>
-          <span *ngIf="submitting" class="spinner"></span>
-        </button>
-      </form>
-
-      <div class="form-status" *ngIf="formStatus">
-        <div [class]="'status-message ' + formStatus.type">
-          <i [class]="formStatus.icon"></i>
-          <p>{{ formStatus.message }}</p>
-        </div>
+        <h3>{{ "CONTACT.FORM_COMING_SOON" | translate }}</h3>
+        <p>{{ "CONTACT.FORM_UNDER_CONSTRUCTION" | translate }}</p>
+        <p class="alt-contact">{{ "CONTACT.USE_EMAIL" | translate }}</p>
       </div>
     </div>
   </div>

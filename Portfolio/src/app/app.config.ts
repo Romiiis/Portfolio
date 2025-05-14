@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { TechnologiesService } from './services/technologies.service';
 
 import { routes } from './app.routes';
+import {ProjectsService} from './services/projects.service';
 
 /**
  * Create a TranslateLoader for loading translation files.
@@ -35,8 +36,7 @@ export const appConfig: ApplicationConfig = {
           provide: TranslateLoader,
           useFactory: createTranslateLoader,
           deps: [HttpClient]
-        },
-        defaultLanguage: 'cs' // Default language
+        }
       })
     ),
 

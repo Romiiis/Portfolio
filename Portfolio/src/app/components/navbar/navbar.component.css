@@ -100,6 +100,7 @@
 .actions {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .icon-btn {
@@ -117,12 +118,114 @@
   transform: scale(1.1);
 }
 
+/* Třída pro skrytí na mobilech */
+.mobile-only {
+  display: none !important;
+}
+
+/* Styly pro jazyk dropdown */
+.language-dropdown {
+  position: relative;
+}
+
+.language-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  padding: 0.5rem;
+}
+
+.language-toggle:hover {
+  color: var(--accent-color);
+}
+
+.language-toggle span {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.language-dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: var(--navbar-bg);
+  min-width: 120px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.language-dropdown-content.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.language-option:hover {
+  background-color: rgba(var(--accent-rgb), 0.08);
+}
+
+.language-option.active {
+  background-color: rgba(var(--accent-rgb), 0.15);
+  font-weight: 600;
+}
+
+/* Mobilní přepínač jazyků */
+.language-switch {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(var(--accent-rgb), 0.05);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.language-switch:hover {
+  background-color: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent-color);
+}
+
+.language-switch span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 /* Media queries pro responzivní design */
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 1rem; /* Zmenšený padding v mobilním zobrazení */
-
-
   }
 
   .mobile-menu-toggle {
@@ -167,9 +270,29 @@
   .actions {
     justify-content: center;
     padding: 0 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.8rem;
   }
 
   .icon-btn {
     padding: 0.7rem;
+  }
+
+  /* Přepínání viditelnosti desktop/mobile prvků */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .language-switch {
+    display: flex;
+  }
+
+  .language-dropdown {
+    display: none;
   }
 }

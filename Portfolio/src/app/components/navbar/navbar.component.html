@@ -23,8 +23,31 @@
         <i class="fas {{iconClass}}"></i>
       </button>
 
-      <button class="icon-btn language-toggle" title="{{ switchLangLabel }}" (click)="translationService.switchLang()">
+      <!-- Desktop dropdown menu - skryje se na mobilech -->
+      <div class="language-dropdown desktop-only">
+        <button type="button" class="language-toggle" (click)="toggleLanguageDropdown($event)" [attr.aria-label]="switchLangLabel">
+          <i class="fas fa-globe"></i>
+          <span>{{ translationService.getCurrentLang() === 'cs' ? 'CZ' : 'EN' }}</span>
+        </button>
+
+        <div class="language-dropdown-content" [class.show]="isLanguageDropdownOpen">
+          <button type="button" class="language-option"
+                  [class.active]="translationService.getCurrentLang() === 'cs'"
+                  (click)="selectLanguage('cs', $event)">
+            <span>Česky</span>
+          </button>
+          <button type="button" class="language-option"
+                  [class.active]="translationService.getCurrentLang() === 'en'"
+                  (click)="selectLanguage('en', $event)">
+            <span>English</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile přepínač - zobrazí se jen na mobilech -->
+      <button type="button" class="language-switch mobile-only" (click)="translationService.switchLang()" [attr.aria-label]="switchLangLabel">
         <i class="fas fa-globe"></i>
+        <span>{{ translationService.getCurrentLang() === 'cs' ? 'CZ' : 'EN' }}</span>
       </button>
     </div>
   </div>
