@@ -14,6 +14,8 @@
   text-align: center;
   overflow: hidden;
   background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.05) 0%, transparent 70%);
+  box-sizing: border-box; /* Add this to ensure padding is included in width */
+
 }
 
 /* Vylepšený první kruh - vlevo nahoře */
@@ -260,12 +262,11 @@
 
   .buttons {
     flex-direction: column;
-    width: 100%;
-    max-width: 300px;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 
   .btn {
-    width: 100%;
     text-align: center;
   }
 }
@@ -285,6 +286,7 @@
 
   .home-container {
     padding: 1.5rem;
+    border: 1px solid red;
   }
 
   .home-container::before,
@@ -292,4 +294,10 @@
     width: 50vw;
     height: 50vw;
   }
+
+  .btn {
+    padding: 0.8rem 1.5rem; /* Smaller padding for mobile */
+    font-size: 1rem; /* Smaller font for mobile */
+  }
+
 }
